@@ -16,5 +16,11 @@ export default {
       type: 'slug',
       options: { source: 'name' },
     },
+    {
+      name: 'category',
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
