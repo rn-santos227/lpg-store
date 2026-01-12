@@ -27,5 +27,16 @@ export default {
       initialValue: 5,
       validation: (Rule: Rule) => Rule.min(0),
     },
+    {
+      name: 'lastUpdated',
+      title: 'Last Updated',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    },
+    {
+      name: 'notes',
+      title: 'Internal Notes',
+      type: 'text',
+    },
   ],
 }
