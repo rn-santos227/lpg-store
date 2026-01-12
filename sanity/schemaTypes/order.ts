@@ -59,5 +59,21 @@ export default {
       ],
       validation: (Rule: Rule) => Rule.required().min(1),
     },
+    {
+      name: 'status',
+      title: 'Order Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Pending', value: 'pending' },
+          { title: 'Confirmed', value: 'confirmed' },
+          { title: 'Out for Delivery', value: 'out_for_delivery' },
+          { title: 'Delivered', value: 'delivered' },
+          { title: 'Cancelled', value: 'cancelled' },
+        ],
+      },
+      initialValue: 'pending',
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
