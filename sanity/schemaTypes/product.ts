@@ -22,5 +22,11 @@ export default {
       to: [{ type: 'category' }],
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'sizeKg',
+      title: 'Size (KG)',
+      type: 'number',
+      description: 'Applicable to LPG tanks or refills only',
+    },
   ],
 }
