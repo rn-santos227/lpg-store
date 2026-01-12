@@ -11,5 +11,11 @@ export default {
       type: 'string',
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'phone',
+      title: 'Contact Number',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
