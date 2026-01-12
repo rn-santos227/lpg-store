@@ -22,5 +22,19 @@ export default {
       title: 'Email',
       type: 'string',
     },
+    {
+      name: 'address',
+      title: 'Full Address',
+      type: 'text',
+      validation: (Rule: Rule) => Rule.required(),
+      description: 'Human-readable delivery address',
+    },
+    {
+      name: 'location',
+      title: 'Map Location',
+      type: 'geopoint',
+      description: 'Pin the delivery location on the map',
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
