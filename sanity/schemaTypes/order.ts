@@ -75,5 +75,17 @@ export default {
       initialValue: 'pending',
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'deliveryNotes',
+      title: 'Delivery Notes',
+      type: 'text',
+      description: 'Instructions from customer',
+    },
+    {
+      name: 'internalNotes',
+      title: 'Internal Notes',
+      type: 'text',
+      description: 'Staff-only notes',
+    },
   ],
 }
