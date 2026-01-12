@@ -19,5 +19,13 @@ export default {
       description: 'Number of units currently in stock',
       validation: (Rule: Rule) => Rule.required().min(0),
     },
+    {
+      name: 'lowStockThreshold',
+      title: 'Low Stock Threshold',
+      type: 'number',
+      description: 'Trigger warning when stock falls below this number',
+      initialValue: 5,
+      validation: (Rule: Rule) => Rule.min(0),
+    },
   ],
 }
