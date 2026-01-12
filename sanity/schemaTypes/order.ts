@@ -87,5 +87,11 @@ export default {
       type: 'text',
       description: 'Staff-only notes',
     },
+    {
+      name: 'createdAt',
+      title: 'Created At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 }
