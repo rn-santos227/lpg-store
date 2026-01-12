@@ -5,6 +5,11 @@ export default {
   title: 'Customer',
   type: 'document',
   fields: [
-
+    {
+      name: 'name',
+      title: 'Customer Name',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
