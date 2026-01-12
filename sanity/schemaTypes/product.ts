@@ -37,5 +37,16 @@ export default {
       name: 'description',
       type: 'text',
     },
+    {
+      name: 'image',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'available',
+      title: 'Available for Order',
+      type: 'boolean',
+      initialValue: true,
+    },
   ],
 }
