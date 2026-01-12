@@ -33,5 +33,9 @@ export default {
       type: 'number',
       validation: (Rule: Rule) => Rule.required().min(0),
     },
+    {
+      name: 'description',
+      type: 'text',
+    },
   ],
 }
