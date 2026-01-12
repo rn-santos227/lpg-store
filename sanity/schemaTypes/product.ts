@@ -28,5 +28,10 @@ export default {
       type: 'number',
       description: 'Applicable to LPG tanks or refills only',
     },
+    {
+      name: 'price',
+      type: 'number',
+      validation: (Rule: Rule) => Rule.required().min(0),
+    },
   ],
 }
