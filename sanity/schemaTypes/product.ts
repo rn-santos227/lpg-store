@@ -11,5 +11,10 @@ export default {
       type: 'string',
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'slug',
+      type: 'slug',
+      options: { source: 'name' },
+    },
   ],
 }
