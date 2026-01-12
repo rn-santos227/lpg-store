@@ -17,5 +17,10 @@ export default {
       type: 'string',
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+    },
   ],
 }
