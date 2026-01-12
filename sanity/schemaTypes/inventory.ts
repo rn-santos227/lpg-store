@@ -12,5 +12,12 @@ export default {
       to: [{ type: 'product' }],
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'quantity',
+      title: 'Available Quantity',
+      type: 'number',
+      description: 'Number of units currently in stock',
+      validation: (Rule: Rule) => Rule.required().min(0),
+    },
   ],
 }
