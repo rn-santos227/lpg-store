@@ -34,4 +34,11 @@ const variantStyles: Record<ButtonVariant, string> = {
   ghost: "bg-transparent text-gray-700 hover:bg-gray-100",
 };
 
-
+export function Button(props: ButtonProps) {
+  const {
+    variant = "primary",
+    fullwidth,
+    className,
+    ...rest
+  } = props;
+}
