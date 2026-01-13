@@ -29,5 +29,32 @@ export default {
       type: 'text',
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'status',
+      title: 'Inquiry Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'New', value: 'new' },
+          { title: 'Responded', value: 'responded' },
+          { title: 'Closed', value: 'closed' },
+        ],
+      },
+      initialValue: 'new',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'source',
+      title: 'Source',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Website', value: 'website' },
+          { title: 'Facebook', value: 'facebook' },
+          { title: 'Phone', value: 'phone' },
+        ],
+      },
+      initialValue: 'website',
+    },
   ],
 }
