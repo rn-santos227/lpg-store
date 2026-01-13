@@ -55,4 +55,13 @@ export const structure: StructureResolver = (S) =>
                 .child(S.documentTypeList('category').title('Categories')),
             ])
         ),
+
+      S.listItem()
+        .title('Customers')
+        .schemaType('customer')
+        .child(
+          S.documentTypeList('customer')
+            .title('Customers')
+            .defaultOrdering([{ field: 'name', direction: 'asc' }])
+        ),
     ])
