@@ -17,4 +17,16 @@ export const TextArea = forwardRef(function TextArea(
   ]
     .filter(Boolean)
     .join(" ");
+
+    return (
+    <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+      {label && <span>{label}</span>}
+      <textarea ref={ref} className={fieldClasses} rows={rows} {...props} />
+      {error ? (
+        <span className="text-xs font-normal text-rose-600">{error}</span>
+      ) : helperText ? (
+        <span className="text-xs font-normal text-gray-500">{helperText}</span>
+      ) : null}
+    </label>
+  );
 });
