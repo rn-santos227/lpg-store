@@ -64,4 +64,24 @@ export const structure: StructureResolver = (S) =>
             .title('Customers')
             .defaultOrdering([{ field: 'name', direction: 'asc' }])
         ),
+
+      S.divider(),
+
+      S.listItem()
+        .title('System')
+        .child(
+          S.list()
+            .title('System')
+            .items([
+              S.listItem()
+                .title('All Orders')
+                .schemaType('order')
+                .child(S.documentTypeList('order')),
+
+              S.listItem()
+                .title('All Inquiries')
+                .schemaType('inquiry')
+                .child(S.documentTypeList('inquiry')),
+            ])
+        ),
     ])
