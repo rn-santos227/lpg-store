@@ -6,6 +6,11 @@ export default {
   title: 'Customer Inquiry',
   type: 'document',
   fields: [
-
+    {
+      name: 'name',
+      title: 'Sender Name',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
