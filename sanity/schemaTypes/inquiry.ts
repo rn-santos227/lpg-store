@@ -56,5 +56,11 @@ export default {
       },
       initialValue: 'website',
     },
+    {
+      name: 'createdAt',
+      title: 'Received At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 }
