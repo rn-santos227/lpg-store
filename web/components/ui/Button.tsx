@@ -41,4 +41,32 @@ export function Button(props: ButtonProps) {
     className,
     ...rest
   } = props;
+
+  const classes = [
+    "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+    variantStyles[variant],
+    fullwidth ? "w-full" : "",
+    className ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if ("href" in props) {
+    const anchorProps = rest as AnchorButtonProps;
+    return (
+      <a
+        className={classes}
+        {...anchorProps}
+      />
+    );
+  }
+
+  const { type = "button", ...buttonProps } = rest as NativeButtonProps;
+  return (
+    <button
+      type={type}
+      className={classes}
+      {...buttonProps}
+    />
+  );
 }
