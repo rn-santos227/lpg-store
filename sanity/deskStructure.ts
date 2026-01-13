@@ -29,4 +29,13 @@ export const structure: StructureResolver = (S) =>
                 ),
             ])
         ),
+
+      S.listItem()
+        .title('Inventory')
+        .child(
+          S.documentTypeList('inventory')
+            .title('Inventory')
+            .defaultOrdering([{ field: 'quantity', direction: 'asc' }])
+        ),
+
     ])
