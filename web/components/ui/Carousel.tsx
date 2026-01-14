@@ -86,6 +86,17 @@ export function Carousel({ children, className, ariaLabel, alignment = "start" }
         </Button>
       </div>
 
+      <div className="absolute inset-y-0 right-4 flex items-center">
+        <Button
+          type="button"
+          variant="secondary"
+          className="pointer-events-auto rounded-full bg-white/5 px-2 py-2 shadow-lg ring-1 ring-white/20 hover:bg-white/10"
+          aria-label="Scroll right"
+          onClick={() => scrollBy("right")}
+        >
+          <ChevronRightIcon />
+        </Button>
+      </div>
     </div>
   );
 }
