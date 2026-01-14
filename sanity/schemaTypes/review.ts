@@ -32,5 +32,25 @@ export default {
       type: 'text',
       description: 'Optional review text',
     },
+    {
+      name: 'status',
+      title: 'Review Status',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Pending', value: 'pending' },
+          { title: 'Approved', value: 'approved' },
+          { title: 'Rejected', value: 'rejected' },
+        ],
+      },
+      initialValue: 'pending',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'createdAt',
+      title: 'Submitted At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 }
