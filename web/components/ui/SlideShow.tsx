@@ -132,6 +132,25 @@ export function SlideShow({
               <ChevronRightIcon />
             </Button>
           </div>
+
+          {showIndicators ? (
+            <div className="mt-4 flex justify-center gap-2">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={clsx(
+                    "h-2.5 w-2.5 rounded-full border border-white/30 transition",
+                    clampedActiveIndex === index
+                      ? "bg-white shadow-[0_0_0_3px_rgba(255,255,255,0.25)]"
+                      : "bg-white/30",
+                  )}
+                />
+              ))}
+            </div>
+          ) : null}
         </>
       ) : null}
     </div>
