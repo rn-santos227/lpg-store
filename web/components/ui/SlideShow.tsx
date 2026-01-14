@@ -48,5 +48,18 @@ export function SlideShow({
   autoAdvanceMs = 8000,
   showIndicators = true,
 }: SlideShowProps) {
+  const slides = useMemo(() => Children.toArray(children), [children]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const clampedActiveIndex = slides.length ? Math.min(activeIndex, slides.length - 1) : 0;
 
+  useEffect(() => {
+    if (slides.length <= 1 || autoAdvanceMs <= 0 || isPaused) return undefined;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % slides.length);
+    }, autoAdvanceMs);
+
+    return () => window.clearInterval(timer);
+  }, [slides.length, autoAdvanceMs, isPaused]);
 }
