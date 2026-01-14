@@ -76,4 +76,17 @@ export function SlideShow({
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
+
+  return (
+    <div
+      className={clsx("relative", className)}
+      role="region"
+      aria-label={ariaLabel}
+      aria-live="polite"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      
+    </div>
+  );
 }
