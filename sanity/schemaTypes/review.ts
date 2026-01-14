@@ -12,5 +12,11 @@ export default {
       to: [{ type: 'product' }],
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: 'customer',
+      title: 'Customer (optional)',
+      type: 'reference',
+      to: [{ type: 'customer' }],
+    },
   ],
 }
