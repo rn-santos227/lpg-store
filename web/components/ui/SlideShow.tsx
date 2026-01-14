@@ -109,6 +109,17 @@ export function SlideShow({
 
       {slides.length > 1 ? (
         <>
+          <div className="pointer-events-none absolute inset-y-0 left-2 flex items-center">
+            <Button
+              type="button"
+              variant="secondary"
+              className="pointer-events-auto rounded-full bg-white/10 px-3 py-2 text-white shadow-lg ring-1 ring-white/25 hover:bg-white/20"
+              aria-label="Previous slide"
+              onClick={() => move("previous")}
+            >
+              <ChevronLeftIcon />
+            </Button>
+          </div>
         </>
       ) : null}
     </div>
