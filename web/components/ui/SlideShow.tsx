@@ -1,29 +1,44 @@
 "use client";
 
 import clsx from "clsx";
-import {
-  FocusEvent,
-  HTMLAttributes,
-  MouseEvent,
-  ReactElement,
-  ReactNode,
-  cloneElement,
-  useId,
-  useState,
-} from "react";
+import { Children, ReactNode, useEffect, useMemo, useState } from "react";
 
-type TooltipPlacement = "top" | "bottom" | "left" | "right";
+import { Button } from "./Button";
 
-type TooltipProps<T extends HTMLElement = HTMLElement> = {
-  content: ReactNode;
-  children: ReactElement<HTMLAttributes<T>>;
-  placement?: TooltipPlacement;
+function ChevronLeftIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
+      <path
+        d="M14.5 18.5 8.5 12l6-6.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronRightIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
+      <path
+        d="m9.5 5.5 6 6.5-6 6.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+type SlideShowProps = {
+  children: ReactNode;
+  ariaLabel?: string;
   className?: string;
+  autoAdvanceMs?: number;
+  showIndicators?: boolean;
 };
 
-const placementClasses: Record<TooltipPlacement, string> = {
-  top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
-  bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
-  left: "right-full top-1/2 -translate-y-1/2 mr-2",
-  right: "left-full top-1/2 -translate-y-1/2 ml-2",
-};
+
