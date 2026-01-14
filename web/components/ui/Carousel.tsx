@@ -42,5 +42,14 @@ function ChevronRightIcon() {
 
 export function Carousel({ children, className, ariaLabel, alignment = "start" }: CarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const scrollBy = (direction: "left" | "right") => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
+    const scrollAmount = container.clientWidth * 0.8;
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 }
