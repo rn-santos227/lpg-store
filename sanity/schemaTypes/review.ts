@@ -5,6 +5,12 @@ export default {
   title: 'Product Review',
   type: 'document',
   fields: [
-
+    {
+      name: 'product',
+      title: 'Product',
+      type: 'reference',
+      to: [{ type: 'product' }],
+      validation: (Rule: Rule) => Rule.required(),
+    },
   ],
 }
