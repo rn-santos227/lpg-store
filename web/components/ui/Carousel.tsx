@@ -5,6 +5,13 @@ import { ReactNode, useRef } from "react";
 
 import { Button } from "./Button";
 
+type CarouselProps = {
+  children: ReactNode;
+  className?: string;
+  ariaLabel?: string;
+  alignment?: "start" | "center" | "end";
+};
+
 function ChevronLeftIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
@@ -33,3 +40,7 @@ function ChevronRightIcon() {
   );
 }
 
+export function Carousel({ children, className, ariaLabel, alignment = "start" }: CarouselProps) {
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+}
