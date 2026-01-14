@@ -120,6 +120,18 @@ export function SlideShow({
               <ChevronLeftIcon />
             </Button>
           </div>
+
+          <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+            <Button
+              type="button"
+              variant="secondary"
+              className="pointer-events-auto rounded-full bg-white/10 px-3 py-2 text-white shadow-lg ring-1 ring-white/25 hover:bg-white/20"
+              aria-label="Next slide"
+              onClick={() => move("next")}
+            >
+              <ChevronRightIcon />
+            </Button>
+          </div>
         </>
       ) : null}
     </div>
