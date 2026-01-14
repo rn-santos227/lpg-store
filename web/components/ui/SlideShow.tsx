@@ -107,7 +107,10 @@ export function SlideShow({
         </div>
       </div>
 
-
+      {slides.length > 1 ? (
+        <>
+        </>
+      ) : null}
     </div>
   );
 }
