@@ -18,5 +18,19 @@ export default {
       type: 'reference',
       to: [{ type: 'customer' }],
     },
+    {
+      name: 'rating',
+      title: 'Rating',
+      type: 'number',
+      description: 'Rating from 1 to 5',
+      validation: (Rule: Rule) =>
+        Rule.required().min(1).max(5),
+    },
+    {
+      name: 'comment',
+      title: 'Comment',
+      type: 'text',
+      description: 'Optional review text',
+    },
   ],
 }
