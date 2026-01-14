@@ -41,4 +41,12 @@ type SlideShowProps = {
   showIndicators?: boolean;
 };
 
+export function SlideShow({
+  children,
+  ariaLabel,
+  className,
+  autoAdvanceMs = 8000,
+  showIndicators = true,
+}: SlideShowProps) {
 
+}
