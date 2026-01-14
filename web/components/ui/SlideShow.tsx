@@ -62,4 +62,18 @@ export function SlideShow({
 
     return () => window.clearInterval(timer);
   }, [slides.length, autoAdvanceMs, isPaused]);
+
+  const move = (direction: "previous" | "next") => {
+    if (slides.length === 0) return;
+
+    setActiveIndex((index) => {
+      if (direction === "previous") {
+        return (index - 1 + slides.length) % slides.length;
+      }
+      return (index + 1) % slides.length;
+    });
+  };
+
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
 }
