@@ -86,7 +86,28 @@ export function SlideShow({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      
+       <div className="overflow-hidden rounded-xl">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${clampedActiveIndex * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div key={index} className="min-w-full">
+              <div
+                className={clsx("h-full", {
+                  "pointer-events-none opacity-0": clampedActiveIndex !== index,
+                  "opacity-100": clampedActiveIndex === index,
+                })}
+                aria-hidden={clampedActiveIndex !== index}
+              >
+                {slide}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
     </div>
   );
 }
