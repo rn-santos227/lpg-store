@@ -52,4 +52,24 @@ export function Carousel({ children, className, ariaLabel, alignment = "start" }
       behavior: "smooth",
     });
   };
+
+  return (
+    <div className={clsx("relative", className)}>
+      <div
+        className={clsx(
+          "no-scrollbar flex gap-3 overflow-x-auto scroll-smooth pr-10 py-6",
+          {
+            "justify-start": alignment === "start",
+            "justify-center": alignment === "center",
+            "justify-end": alignment === "end",
+          },
+        )}
+        ref={scrollContainerRef}
+        role="region"
+        aria-label={ariaLabel}
+      >
+        {children}
+      </div> 
+    </div>
+  )
 }
