@@ -54,4 +54,11 @@ export function Modal({
   }, [open, onClose]);
 
   if (!open) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-10 sm:px-6">
+
+    </div>,
+    document.body,
+  );
 }
