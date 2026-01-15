@@ -16,7 +16,9 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentTypeList('order')
                     .title('Orders')
-                    .defaultOrdering([{ field: 'createdAt', direction: 'desc' }])
+                    .defaultOrdering([
+                      { field: 'createdAt', direction: 'desc' },
+                    ])
                 ),
 
               S.listItem()
@@ -25,13 +27,27 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentTypeList('inquiry')
                     .title('Customer Inquiries')
-                    .defaultOrdering([{ field: 'createdAt', direction: 'desc' }])
+                    .defaultOrdering([
+                      { field: 'createdAt', direction: 'desc' },
+                    ])
+                ),
+
+              S.listItem()
+                .title('Product Reviews')
+                .schemaType('review')
+                .child(
+                  S.documentTypeList('review')
+                    .title('Product Reviews')
+                    .defaultOrdering([
+                      { field: 'createdAt', direction: 'desc' },
+                    ])
                 ),
             ])
         ),
 
       S.listItem()
         .title('Inventory')
+        .schemaType('inventory')
         .child(
           S.documentTypeList('inventory')
             .title('Inventory')
@@ -47,12 +63,30 @@ export const structure: StructureResolver = (S) =>
               S.listItem()
                 .title('Products')
                 .schemaType('product')
-                .child(S.documentTypeList('product').title('Products')),
+                .child(
+                  S.documentTypeList('product')
+                    .title('Products')
+                ),
 
               S.listItem()
                 .title('Categories')
                 .schemaType('category')
-                .child(S.documentTypeList('category').title('Categories')),
+                .child(
+                  S.documentTypeList('category')
+                    .title('Categories')
+                ),
+            ])
+        ),
+
+      S.listItem()
+        .title('Promotions')
+        .schemaType('promotion')
+        .child(
+          S.documentTypeList('promotion')
+            .title('Promotions')
+            .defaultOrdering([
+              { field: 'priority', direction: 'desc' },
+              { field: 'createdAt', direction: 'desc' },
             ])
         ),
 
@@ -82,6 +116,16 @@ export const structure: StructureResolver = (S) =>
                 .title('All Inquiries')
                 .schemaType('inquiry')
                 .child(S.documentTypeList('inquiry')),
+
+              S.listItem()
+                .title('All Reviews')
+                .schemaType('review')
+                .child(S.documentTypeList('review')),
+
+              S.listItem()
+                .title('All Promotions')
+                .schemaType('promotion')
+                .child(S.documentTypeList('promotion')),
             ])
         ),
     ])
