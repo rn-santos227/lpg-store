@@ -46,5 +46,12 @@ export default {
       initialValue: false,
       description: 'Controls whether this promotion is shown',
     },
+    {
+      name: 'priority',
+      title: 'Priority',
+      type: 'number',
+      description: 'Higher number = shown first',
+      initialValue: 0,
+    },
   ],
 }
