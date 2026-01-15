@@ -53,5 +53,11 @@ export default {
       description: 'Higher number = shown first',
       initialValue: 0,
     },
+    {
+      name: 'startDate',
+      title: 'Start Date',
+      type: 'datetime',
+      description: 'Optional start date',
+    },
   ],
 }
