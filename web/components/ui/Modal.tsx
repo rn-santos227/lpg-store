@@ -57,7 +57,12 @@ export function Modal({
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-10 sm:px-6">
-
+      <button
+        type="button"
+        aria-label="Close dialog"
+        className="modal-overlay absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
     </div>,
     document.body,
   );
