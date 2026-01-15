@@ -12,5 +12,11 @@ export default {
       validation: (Rule: Rule) => Rule.required(),
       description: 'Main headline shown in hero',
     },
+    {
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'text',
+      description: 'Short supporting text',
+    },
   ],
 }
