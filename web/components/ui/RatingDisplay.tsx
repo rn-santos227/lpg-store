@@ -10,4 +10,12 @@ type RatingDisplayProps = {
   ariaLabel?: string;
 };
 
+export function RatingDisplay({
+  rating,
+  showValue = true,
+  className,
+  emptyLabel = "No ratings yet",
+  ariaLabel,
+}: RatingDisplayProps) {
 
+}
