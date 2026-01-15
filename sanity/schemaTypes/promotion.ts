@@ -26,5 +26,18 @@ export default {
       validation: (Rule: Rule) => Rule.required(),
     },
 
+    {
+      name: 'ctaLabel',
+      title: 'CTA Label',
+      type: 'string',
+      description: 'Button text (e.g. Order Now)',
+    },
+    {
+      name: 'ctaLink',
+      title: 'CTA Link',
+      type: 'string',
+      description: 'Internal path or external URL',
+    },
+
   ],
 }
