@@ -65,5 +65,12 @@ export default {
       type: 'datetime',
       description: 'Optional end date',
     },
+
+    {
+      name: 'createdAt',
+      title: 'Created At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    },
   ],
 }
