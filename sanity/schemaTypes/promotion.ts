@@ -5,6 +5,12 @@ export default {
   title: 'Promotion',
   type: 'document',
   fields: [
-
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+      description: 'Main headline shown in hero',
+    },
   ],
 }
