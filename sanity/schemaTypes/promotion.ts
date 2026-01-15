@@ -59,5 +59,11 @@ export default {
       type: 'datetime',
       description: 'Optional start date',
     },
+    {
+      name: 'endDate',
+      title: 'End Date',
+      type: 'datetime',
+      description: 'Optional end date',
+    },
   ],
 }
