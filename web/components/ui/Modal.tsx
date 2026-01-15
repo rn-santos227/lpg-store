@@ -63,6 +63,9 @@ export function Modal({
         className="modal-overlay absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
         onClick={onClose}
       />
+
+        <div className="space-y-6 px-6 py-6">{children}</div>
+        {footer && <div className="border-t border-slate-100 bg-slate-50 px-6 py-4">{footer}</div>}
     </div>,
     document.body,
   );
