@@ -18,5 +18,13 @@ export default {
       type: 'text',
       description: 'Short supporting text',
     },
+    {
+      name: 'image',
+      title: 'Hero Image',
+      type: 'image',
+      options: { hotspot: true },
+      validation: (Rule: Rule) => Rule.required(),
+    },
+
   ],
 }
