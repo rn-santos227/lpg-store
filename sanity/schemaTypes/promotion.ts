@@ -39,5 +39,12 @@ export default {
       description: 'Internal path or external URL',
     },
 
+    {
+      name: 'isActive',
+      title: 'Active',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Controls whether this promotion is shown',
+    },
   ],
 }
