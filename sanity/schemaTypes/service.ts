@@ -17,6 +17,18 @@ export default {
       options: { source: 'title' },
       validation: (Rule: Rule) => Rule.required(),
     },
-
+    {
+      name: 'summary',
+      title: 'Summary',
+      type: 'text',
+      description: 'Short summary shown on the website.',
+    },
+    {
+      name: 'fee',
+      title: 'Service Fee',
+      type: 'number',
+      description: 'Optional service fee displayed to customers.',
+      validation: (Rule: Rule) => Rule.min(0),
+    },
   ],
 }
