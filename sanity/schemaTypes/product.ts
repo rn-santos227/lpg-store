@@ -23,6 +23,13 @@ export default {
       validation: (Rule: Rule) => Rule.required(),
     },
     {
+      name: 'featured',
+      title: 'Featured Product',
+      type: 'boolean',
+      description: 'Mark as a featured item for promotional placements.',
+      initialValue: false,
+    },
+    {
       name: 'sizeKg',
       title: 'Size (KG)',
       type: 'number',
