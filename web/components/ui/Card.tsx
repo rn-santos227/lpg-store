@@ -16,3 +16,9 @@ export function Card({ className, ...props }: CardProps) {
   return <div className={classes} {...props} />;
 }
 
+export function CardHeader({ className, ...props }: CardSectionProps) {
+  const classes = ["px-6 pt-6", className ?? ""].filter(Boolean).join(" ");
+
+  return <div className={classes} {...props} />;
+}
+
