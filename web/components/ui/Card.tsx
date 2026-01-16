@@ -44,3 +44,13 @@ export function CardContent({ className, ...props }: CardSectionProps) {
   return <div className={classes} {...props} />;
 }
 
+export function CardFooter({ className, ...props }: CardSectionProps) {
+  const classes = [
+    "flex items-center justify-between gap-3 px-6 pb-6",
+    className ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <div className={classes} {...props} />;
+}
