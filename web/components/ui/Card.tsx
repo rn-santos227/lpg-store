@@ -30,3 +30,11 @@ export function CardTitle({ className, ...props }: CardTitleProps) {
   return <h3 className={classes} {...props} />;
 }
 
+export function CardDescription({ className, ...props }: CardDescriptionProps) {
+  const classes = ["text-sm text-slate-600", className ?? ""]
+    .filter(Boolean)
+    .join(" ");
+
+  return <p className={classes} {...props} />;
+}
+
