@@ -74,7 +74,45 @@ export function ProductCard({
             <Badge tone="info">{badge}</Badge>
           </div>
         )}
-      </div> 
+      </div>
+
+      <CardContent className="flex flex-1 flex-col gap-4">
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-2">
+            {titleContent}
+            {description && (
+              <p className="text-sm text-slate-600 line-clamp-2">
+                {description}
+              </p>
+            )}
+          </div>
+          <span className="text-lg font-semibold text-slate-900">
+            {price}
+          </span>
+        </div>
+
+        {(rating || reviewCount) && (
+          <div className="flex items-center gap-2">
+            <RatingDisplay rating={rating ?? undefined} showValue={false} />
+            {reviewCount ? (
+              <span className="text-xs text-slate-500">
+                {reviewCount} reviews
+              </span>
+            ) : null}
+          </div>
+        )}
+
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <div className="text-sm font-medium text-slate-500">
+            {href ? "View details" : "Ready to order"}
+          </div>
+          {actionLabel && (actionHref || onAction) && (
+            <Button variant="secondary" {...actionProps}>
+              {actionLabel}
+            </Button>
+          )}
+        </div>
+      </CardContent>
     </Card>
   );
 }
