@@ -33,3 +33,24 @@ export async function createSanityDocument<T extends SanityDocument>(
   return { document: created as T };
 }
 
+export async function replaceSanityDocument<T extends SanityDocument>(
+  document: T,
+): Promise<MutationResult<T>> {
+  const replaced = await sanityWriteClient.createOrReplace(document);
+  return { document: replaced as T };
+}
+
+export async function patchSanityDocument<T extends SanityDocument>(
+  id: string,
+  patch: Partial<T>,
+): Promise<MutationResult<T>> {
+  const updated = await sanityWriteClient.patch(id).set(patch).commit();
+  return { document: updated as T };
+}
+
+export async function deleteSanityDocument(
+  id: string,
+): Promise<{ id: string }> {
+  const deleted = await sanityWriteClient.delete(id);
+  return { id: deleted._id };
+}
