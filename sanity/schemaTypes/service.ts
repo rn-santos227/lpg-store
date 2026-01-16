@@ -30,5 +30,24 @@ export default {
       description: 'Optional service fee displayed to customers.',
       validation: (Rule: Rule) => Rule.min(0),
     },
+    {
+      name: 'details',
+      title: 'Details',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'isActive',
+      title: 'Active',
+      type: 'boolean',
+      initialValue: true,
+    },
+
   ],
 }
