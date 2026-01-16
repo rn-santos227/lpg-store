@@ -24,4 +24,19 @@ type ProductCardProps = {
   className?: string;
 };
 
+export function ProductCard({
+  name,
+  description,
+  price,
+  image,
+  href,
+  badge,
+  rating,
+  reviewCount,
+  actionLabel = "Add to cart",
+  actionHref,
+  onAction,
+  className,
+}: ProductCardProps) {
 
+}
