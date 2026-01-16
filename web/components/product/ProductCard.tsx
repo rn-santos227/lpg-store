@@ -38,5 +38,15 @@ export function ProductCard({
   onAction,
   className,
 }: ProductCardProps) {
+  const titleContent = href ? (
+    <Link
+      href={href}
+      className="text-base font-semibold text-slate-900 transition hover:text-indigo-600"
+    >
+      {name}
+    </Link>
+  ) : (
+    <h3 className="text-base font-semibold text-slate-900">{name}</h3>
+  );
 
 }
