@@ -49,4 +49,20 @@ export function ProductCard({
     <h3 className="text-base font-semibold text-slate-900">{name}</h3>
   );
 
+  const actionProps = actionHref
+    ? { href: actionHref }
+    : { onClick: onAction };
+
+  return (
+    <Card
+      className={[
+        "group flex h-full flex-col overflow-hidden transition-shadow hover:shadow-md",
+        className ?? "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      
+    </Card>
+  );
 }
