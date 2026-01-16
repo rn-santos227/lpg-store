@@ -22,3 +22,11 @@ export function CardHeader({ className, ...props }: CardSectionProps) {
   return <div className={classes} {...props} />;
 }
 
+export function CardTitle({ className, ...props }: CardTitleProps) {
+  const classes = ["text-lg font-semibold text-slate-900", className ?? ""]
+    .filter(Boolean)
+    .join(" ");
+
+  return <h3 className={classes} {...props} />;
+}
+
