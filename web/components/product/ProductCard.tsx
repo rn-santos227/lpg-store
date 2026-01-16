@@ -62,7 +62,19 @@ export function ProductCard({
         .filter(Boolean)
         .join(" ")}
     >
-      
+      <div className="relative">
+        <ImageViewer
+          src={image}
+          alt={name}
+          className="h-52 w-full"
+          imgClassName="transition duration-300 group-hover:scale-105"
+        />
+        {badge && (
+          <div className="absolute left-4 top-4">
+            <Badge tone="info">{badge}</Badge>
+          </div>
+        )}
+      </div> 
     </Card>
   );
 }
