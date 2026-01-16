@@ -6,6 +6,7 @@ import product from './product'
 import promotion from './promotion'
 import order from './order'
 import review from './review'
+import service from './service'
 
 export const schemaTypes = [
   category,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   product,
   order,
   review,
+  service,
 ]
