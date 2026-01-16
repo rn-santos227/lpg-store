@@ -31,4 +31,11 @@ export type SafetyMetric = {
   note: string;
 };
 
-
+export type HomeHighlights = {
+  stats: HighlightStat[];
+  bundles: BundleHighlight[];
+  featuredProducts: FeaturedProduct[];
+  services: ServiceHighlight[];
+  safetyChecks: string[];
+  safetyMetrics: SafetyMetric[];
+};
