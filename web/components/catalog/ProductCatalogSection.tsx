@@ -8,13 +8,19 @@ import { ProductFilterComponent } from "./ProductFilterComponent";
 type ProductCatalogSectionProps = {
   products: Product[];
   initialSearch?: string;
-  formatPrice: (price?: number | null) => string;
+};
+
+const formatPrice = (price?: number | null) => {
+  if (!price) {
+    return "Contact for price";
+  }
+
+  return `₱${price.toLocaleString("en-PH")}`;
 };
 
 export function ProductCatalogSection({
   products,
   initialSearch,
-  formatPrice,
 }: ProductCatalogSectionProps) {
   const {
     availableOnly,

@@ -1,5 +1,11 @@
 import CatalogPageComponent from "../../components/catalog/CatalogComponentPage";
 
-export default function CatalogPage() {
-  return <CatalogPageComponent />;
+type CatalogPageProps = {
+  searchParams?: {
+    q?: string;
+  };
+};
+
+export default function CatalogPage({ searchParams }: CatalogPageProps) {
+  return <CatalogPageComponent searchQuery={searchParams?.q ?? ""} />;
 }
