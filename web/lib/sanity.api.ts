@@ -2,6 +2,17 @@ import type { SanityDocument } from "@sanity/client";
 
 import { sanityClient, sanityWriteClient } from "./sanity.client";
 
+type SanitySystemFields =
+  | "_id"
+  | "_rev"
+  | "_createdAt"
+  | "_updatedAt";
+
+type SanityCreateInput<T extends SanityDocument> =
+  Omit<T, SanitySystemFields> & {
+    _type: T["_type"];
+  };
+
 type MutationResult<T> = {
   document: T;
 };
@@ -27,7 +38,7 @@ export async function fetchSanityDocument<T extends SanityDocument>(
 }
 
 export async function createSanityDocument<T extends SanityDocument>(
-  document: T,
+  document: SanityCreateInput<T>,
 ): Promise<MutationResult<T>> {
   const created = await sanityWriteClient.create(document);
   return { document: created as T };
