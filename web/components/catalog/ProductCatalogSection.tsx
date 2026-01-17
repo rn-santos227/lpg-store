@@ -1,7 +1,7 @@
 "use client";
 
 import type { Product } from "../../@types/product";
-import { ProductCard } from "../product/ProductCard";
+import { ProductCard } from "../product/ProductCardComponent";
 import { useCatalogFilters } from "./hooks/useCatalogFilters";
 import { ProductFilterComponent } from "./ProductFilterComponent";
 

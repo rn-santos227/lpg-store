@@ -2,8 +2,8 @@
 
 import GeneralFooterLayout from "../layouts/GeneralFooterLayout";
 import GeneralHeaderLayout from "../layouts/GeneralHeaderLayout";
-import { ProductCard } from "../product/ProductCard";
-import { ServiceCard } from "../services/ServiceCard";
+import { ProductCard } from "../product/ProductCardComponent";
+import { ServiceCard } from "../services/ServiceCardComponent";
 import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/Card";
 import { Spinner } from "../ui/Spinner";

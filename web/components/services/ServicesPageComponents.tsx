@@ -1,6 +1,6 @@
 import GeneralFooterLayout from "../layouts/GeneralFooterLayout";
 import GeneralHeaderLayout from "../layouts/GeneralHeaderLayout";
-import { ServiceCard } from "./ServiceCard";
+import { ServiceCard } from "./ServiceCardComponent";
 import { servicesCatalogQuery } from "../../constants/queries";
 import type { Service } from "../../@types/service";
 import { fetchSanityQuery } from "../../lib/sanity.api";
