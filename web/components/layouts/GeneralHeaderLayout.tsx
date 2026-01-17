@@ -7,28 +7,54 @@ const navigation = [
 
 export default function GeneralHeaderLayout() {
   return (
-    <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-lg font-semibold text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-lg font-semibold text-white shadow-sm">
             A4R
           </span>
           <div>
             <p className="text-lg font-semibold text-slate-900">A4R LPG Trading</p>
-            <p className="text-sm text-slate-500">Marketplace for clean energy essentials</p>
+            <p className="text-sm text-slate-500">Marketplace for Clean Energy Essentials</p>
           </div>
         </div>
-        <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
-          {navigation.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="rounded-full px-3 py-1 transition hover:bg-emerald-50 hover:text-emerald-700"
+        <div className="flex flex-1 flex-wrap items-center justify-end gap-4">
+          <form
+            action="/catalog"
+            method="get"
+            className="flex w-full max-w-sm items-center gap-2 rounded-full border border-emerald-100 bg-white px-3 py-1 text-sm text-slate-600 shadow-sm focus-within:border-emerald-300 focus-within:ring-2 focus-within:ring-emerald-100"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-4 w-4 text-emerald-600"
             >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+              <path
+                fillRule="evenodd"
+                d="M9 3.5a5.5 5.5 0 1 0 3.516 9.737l2.623 2.624a.75.75 0 0 0 1.061-1.06l-2.624-2.624A5.5 5.5 0 0 0 9 3.5ZM5 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <input
+              type="search"
+              name="q"
+              placeholder="Search products"
+              className="w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400"
+            />
+          </form>
+          <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+            {navigation.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="rounded-full px-3 py-1 transition hover:bg-emerald-50 hover:text-emerald-700"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   );
