@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { fetchSanityQuery } from "../../../lib/sanity.api";
-import { categorySearchQuery } from "../../../constants/queries";
+import { categoryQuery, categorySearchQuery } from "../../../constants/queries";
 import type { Category } from "../../../@types/category";
 
 const MIN_QUERY_LENGTH = 2;
@@ -21,26 +21,27 @@ function toCategory(result: CategoryResult): Category {
 export async function GET(request: NextRequest) {
   const query = request.nextUrl.searchParams.get("q")?.trim().toLowerCase();
 
-  if (!query || query.length < MIN_QUERY_LENGTH) {
-    return NextResponse.json({ results: [] });
-  }
-
   try {
-    const results = await fetchSanityQuery<CategoryResult[]>(
-      categorySearchQuery,
-      {
-        term: `${query}*`,
-      },
-    );
+    if (query && query.length >= MIN_QUERY_LENGTH) {
+      const results = await fetchSanityQuery<CategoryResult[]>(
+        categorySearchQuery,
+        {
+          term: `${query}*`,
+        },
+      );
 
+      const categories = (results ?? []).map(toCategory);
+      return NextResponse.json({ results: categories });
+    }
+
+    const results = await fetchSanityQuery<CategoryResult[]>(categoryQuery);
     const categories = (results ?? []).map(toCategory);
-    return NextResponse.json({ results: categories });
+    return NextResponse.json({ categories });
   } catch (error) {
     const message =
       error instanceof Error
         ? error.message
-        : "Unable to search for categories.";
-
+        : "Unable to fetch categories.";
     return NextResponse.json({ message }, { status: 500 });
   }
 }

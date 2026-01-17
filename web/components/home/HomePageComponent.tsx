@@ -23,9 +23,9 @@ export default function HomePageComponent() {
     categories,
     services,
     featuredProducts,
-    heroCategories,
     isLoading,
   } = useHomeContent();
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -54,27 +54,6 @@ export default function HomePageComponent() {
                 Explore services
               </Button>
             </div>
-            {isLoading ? (
-              <Spinner label="Loading categories" />
-            ) : heroCategories.length ? (
-              <div className="grid gap-4 sm:grid-cols-2">
-                {heroCategories.map((category) => (
-                  <div
-                    key={category.id}
-                    className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-                  >
-                    <p className="text-sm font-semibold text-slate-900">
-                      {category.title}
-                    </p>
-                    {category.slug ? (
-                      <p className="text-sm text-slate-600">{category.slug}</p>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-slate-500">No categories available.</p>
-            )}
           </div>
 
           <div className="space-y-4">
@@ -124,22 +103,18 @@ export default function HomePageComponent() {
           {isLoading ? (
             <Spinner label="Loading categories" />
           ) : categories.length ? (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-wrap gap-3">
               {categories.map((category) => (
-                <Card key={category.id}>
-                  <CardContent className="space-y-3 pt-6">
-                    <CardTitle className="text-base">
-                      {category.title}
-                    </CardTitle>
-                    {category.slug ? (
-                      <CardDescription>{category.slug}</CardDescription>
-                    ) : (
-                      <CardDescription>
-                        Curated LPG essentials and accessories.
-                      </CardDescription>
-                    )}
-                  </CardContent>
-                </Card>
+                <Button
+                  key={category.id}
+                  className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-700 hover:border-slate-300"
+                  variant="ghost"
+                  href={
+                    category.slug ? `/categories/${category.slug}` : "#support"
+                  }
+                >
+                  {category.title}
+                </Button>
               ))}
             </div>
           ) : (
@@ -181,7 +156,7 @@ export default function HomePageComponent() {
               </p>
             </div>
             <Button variant="secondary" href="#support">
-              See deals
+              See Deals
             </Button>
           </div>
           {isLoading ? (

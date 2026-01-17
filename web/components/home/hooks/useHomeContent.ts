@@ -4,36 +4,36 @@ import type { Category } from "../../../@types/category";
 import type { Product } from "../../../@types/product";
 import type { Promotion } from "../../../@types/promotion";
 import type { Service } from "../../../@types/service";
-import {
-  categoryQuery,
-  featuredProductsQuery,
-  promotionQuery,
-  servicesQuery,
-} from "../../../constants/queries";
 
-type SanityResponse<T> = {
-  result: T;
+type HomeContentResponse = {
+  promotion: Promotion | null;
+  categories: Category[];
+  services: Service[];
+  featuredProducts: Product[];
 };
 
-const fetchSanityData = async <T,>(query: string) => {
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+type PromotionResponse = {
+  promotion: Promotion | null;
+};
 
-  if (!projectId || !dataset) {
-    return null;
-  }
+type CategoryResponse = {
+  categories: Category[];
+};
 
-  const url = `https://${projectId}.api.sanity.io/v2024-01-01/data/query/${dataset}?query=${encodeURIComponent(
-    query,
-  )}`;
+type ServiceResponse = {
+  services: Service[];
+};
 
+type ProductResponse = {
+  products: Product[];
+};
+
+const fetchJson = async <T,>(url: string) => {
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok) {
     return null;
   }
-
-  const data = (await response.json()) as SanityResponse<T>;
-  return data.result ?? null;
+  return (await response.json()) as T;
 };
 
 export const useHomeContent = () => {
@@ -48,22 +48,30 @@ export const useHomeContent = () => {
 
     const loadContent = async () => {
       setIsLoading(true);
-      const [promotionResult, categoryResults, serviceResults, productResults] =
+      const [promotionResponse, categoryResponse, serviceResponse, productResponse] =
         await Promise.all([
-          fetchSanityData<Promotion>(promotionQuery),
-          fetchSanityData<Category[]>(categoryQuery),
-          fetchSanityData<Service[]>(servicesQuery),
-          fetchSanityData<Product[]>(featuredProductsQuery),
+          fetchJson<PromotionResponse>("/api/promotions"),
+          fetchJson<CategoryResponse>("/api/categories"),
+          fetchJson<ServiceResponse>("/api/featured-services"),
+          fetchJson<ProductResponse>("/api/featured-products"),
         ]);
+
+        
+      const payload: HomeContentResponse = {
+        promotion: promotionResponse?.promotion ?? null,
+        categories: categoryResponse?.categories ?? [],
+        services: serviceResponse?.services ?? [],
+        featuredProducts: productResponse?.products ?? [],
+      };
 
       if (!isMounted) {
         return;
       }
 
-      setPromotion(promotionResult ?? null);
-      setCategories(categoryResults ?? []);
-      setServices(serviceResults ?? []);
-      setFeaturedProducts(productResults ?? []);
+      setPromotion(payload.promotion);
+      setCategories(payload.categories);
+      setServices(payload.services);
+      setFeaturedProducts(payload.featuredProducts);
       setIsLoading(false);
     };
 
@@ -89,4 +97,4 @@ export const useHomeContent = () => {
     heroCategories,
     isLoading,
   };
-};
+}
