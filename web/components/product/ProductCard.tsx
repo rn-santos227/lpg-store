@@ -41,7 +41,7 @@ export function ProductCard({
   const titleContent = href ? (
     <Link
       href={href}
-      className="text-base font-semibold text-slate-900 transition hover:text-indigo-600"
+      className="relative z-20 text-base font-semibold text-slate-900 transition hover:text-indigo-600"
     >
       {name}
     </Link>
@@ -56,12 +56,20 @@ export function ProductCard({
   return (
     <Card
       className={[
-        "group flex h-full flex-col overflow-hidden transition-shadow hover:shadow-md",
+        "group relative flex h-full flex-col overflow-hidden transition-shadow hover:shadow-md",
+        href ? "cursor-pointer" : "",
         className ?? "",
       ]
         .filter(Boolean)
         .join(" ")}
     >
+      {href ? (
+        <Link
+          href={href}
+          aria-label={`View ${name}`}
+          className="absolute inset-0 z-10"
+        />
+      ) : null}
       <div className="relative">
         <ImageViewer
           src={image}
@@ -76,7 +84,7 @@ export function ProductCard({
         )}
       </div>
 
-      <CardContent className="flex flex-1 flex-col gap-4">
+      <CardContent className="relative z-20 flex flex-1 flex-col gap-4">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-2">
             {titleContent}
@@ -107,7 +115,7 @@ export function ProductCard({
             {href ? "View details" : "Ready to order"}
           </div>
           {actionLabel && (actionHref || onAction) && (
-            <Button variant="secondary" {...actionProps}>
+            <Button variant="secondary" {...actionProps} className="relative z-20">
               {actionLabel}
             </Button>
           )}
