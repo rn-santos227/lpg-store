@@ -1,8 +1,8 @@
 const navigation = [
-  { label: "Marketplace", href: "#marketplace" },
-  { label: "Services", href: "#services" },
-  { label: "Catalog", href: "#catalog" },
-  { label: "Support", href: "#support" },
+  { label: "Marketplace", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Catalog", href: "/catalog" },
+  { label: "Support", href: "/support" },
 ];
 
 export default function GeneralHeaderLayout() {

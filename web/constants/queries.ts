@@ -28,7 +28,7 @@ export const promotionQuery = `
 
 export const featuredProductsQuery = `
   *[_type == "product" && featured == true]
-  | order(_createdAt desc){
+  | order(_createdAt desc)[0..4]{
     _id,
     name,
     "slug": slug.current,
@@ -43,6 +43,34 @@ export const featuredProductsQuery = `
 `;
 
 export const servicesQuery = `
+  *[_type == "service" && isActive == true]
+  | order(_createdAt desc)[0..4]{
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    fee,
+    "imageUrl": image.asset->url
+  }
+`;
+
+export const productCatalogQuery = `
+  *[_type == "product"]
+  | order(_createdAt desc){
+    _id,
+    name,
+    "slug": slug.current,
+    "categoryId": category->_id,
+    sizeKg,
+    price,
+    description,
+    "imageUrl": image.asset->url,
+    featured,
+    available
+  }
+`;
+
+export const servicesCatalogQuery = `
   *[_type == "service" && isActive == true]
   | order(_createdAt desc){
     _id,

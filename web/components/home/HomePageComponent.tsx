@@ -3,7 +3,7 @@
 import GeneralFooterLayout from "../layouts/GeneralFooterLayout";
 import GeneralHeaderLayout from "../layouts/GeneralHeaderLayout";
 import { ProductCard } from "../product/ProductCard";
-import { ServiceCard } from "../service/ServiceCard";
+import { ServiceCard } from "../services/ServiceCard";
 import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/Card";
 import { Spinner } from "../ui/Spinner";
@@ -26,9 +26,8 @@ export default function HomePageComponent() {
     isLoading,
   } = useHomeContent();
 
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
       <GeneralHeaderLayout />
 
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 pb-40 pt-12">
@@ -49,8 +48,8 @@ export default function HomePageComponent() {
               keep homes and small businesses running safely and efficiently.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="#catalog">Shop featured products</Button>
-              <Button href="#services" variant="secondary">
+              <Button href="/catalog">Shop featured products</Button>
+              <Button href="/services" variant="secondary">
                 Explore services
               </Button>
             </div>
@@ -155,7 +154,7 @@ export default function HomePageComponent() {
                 Featured products
               </p>
             </div>
-            <Button variant="secondary" href="#support">
+            <Button variant="secondary" href="/catalog">
               See Deals
             </Button>
           </div>
@@ -173,7 +172,7 @@ export default function HomePageComponent() {
                   badge={product.featured ? "Featured" : undefined}
                   actionLabel="Add to cart"
                   actionHref={
-                    product.slug ? `/products/${product.slug}` : "#support"
+                    product.slug ? `/catalog/${product.slug}` : "#support"
                   }
                 />
               ))}
