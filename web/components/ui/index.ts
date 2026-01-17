@@ -2,6 +2,7 @@ export * from "./Badge";
 export * from "./Button";
 export * from "./Card";
 export * from "./Carousel";
+export * from "./Accordion";
 export { default as ImageViewer } from "./ImageViewer";
 export * from "./Modal";
 export * from "./RatingDisplay";
