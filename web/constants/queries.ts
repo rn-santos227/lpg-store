@@ -36,7 +36,7 @@ export const featuredProductsQuery = `
     sizeKg,
     price,
     description,
-    "imageUrl": image.asset->url,
+    "imageUrl": coalesce(primaryImage.asset->url, image.asset->url),
     featured,
     available
   }
@@ -74,9 +74,36 @@ export const productCatalogQuery = `
     sizeKg,
     price,
     description,
-    "imageUrl": image.asset->url,
+    "imageUrl": coalesce(primaryImage.asset->url, image.asset->url),
     featured,
     available
+  }
+`;
+
+export const productDetailQuery = `
+  *[_type == "product" && slug.current == $slug][0]{
+    _id,
+    name,
+    "slug": slug.current,
+    "categoryId": category->_id,
+    sizeKg,
+    price,
+    description,
+    "imageUrl": coalesce(primaryImage.asset->url, image.asset->url),
+    "gallery": gallery[].asset->url,
+    featured,
+    available
+  }
+`;
+
+export const productReviewsQuery = `
+  *[_type == "review" && product->slug.current == $slug && status == "approved"]
+  | order(createdAt desc){
+    "id": _id,
+    rating,
+    comment,
+    createdAt,
+    "customerName": coalesce(customer->name, "Verified customer")
   }
 `;
 
