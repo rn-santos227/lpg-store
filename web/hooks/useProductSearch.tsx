@@ -16,7 +16,7 @@ type ProductSearchState = {
   message: string;
 };
 
-export function useHeaderProductSearch(): ProductSearchState {
+export function useProductSearch(): ProductSearchState {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<ProductSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
