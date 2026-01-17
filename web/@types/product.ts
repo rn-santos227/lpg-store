@@ -6,6 +6,7 @@ export type Product = {
   price: number;
   description?: string | null;
   imageUrl?: string | null;
+  gallery?: string[] | null;
   featured?: boolean | null;
   available?: boolean | null;
 };
