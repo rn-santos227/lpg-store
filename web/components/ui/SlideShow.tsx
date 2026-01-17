@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "./types/cn";
 import { Children, ReactNode, useEffect, useMemo, useState } from "react";
 
 import { Button } from "./Button";
@@ -79,7 +79,7 @@ export function SlideShow({
 
   return (
     <div
-      className={clsx("relative", className)}
+      className={cn("relative", className)}
       role="region"
       aria-label={ariaLabel}
       aria-live="polite"
@@ -94,7 +94,7 @@ export function SlideShow({
           {slides.map((slide, index) => (
             <div key={index} className="min-w-full">
               <div
-                className={clsx("h-full", {
+                className={cn("h-full", {
                   "pointer-events-none opacity-0": clampedActiveIndex !== index,
                   "opacity-100": clampedActiveIndex === index,
                 })}
@@ -141,7 +141,7 @@ export function SlideShow({
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Go to slide ${index + 1}`}
-                  className={clsx(
+                  className={cn(
                     "h-2.5 w-2.5 rounded-full border border-white/30 transition",
                     clampedActiveIndex === index
                       ? "bg-white shadow-[0_0_0_3px_rgba(255,255,255,0.25)]"

@@ -1,9 +1,9 @@
 "use client";
 
-import clsx from "clsx";
 import { ReactNode, useRef } from "react";
-
 import { Button } from "./Button";
+
+import { cn } from "./types/cn";
 
 function ChevronLeftIcon() {
   return (
@@ -54,9 +54,9 @@ export function Carousel({ children, className, ariaLabel, alignment = "start" }
   };
 
   return (
-    <div className={clsx("relative", className)}>
+    <div className={cn("relative", className)}>
       <div
-        className={clsx(
+        className={cn(
           "no-scrollbar flex gap-3 overflow-x-auto scroll-smooth pr-10 py-6",
           {
             "justify-start": alignment === "start",

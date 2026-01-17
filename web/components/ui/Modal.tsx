@@ -3,7 +3,7 @@
 import { ReactNode, useEffect, useId } from "react";
 import { createPortal } from "react-dom";
 
-import clsx from "clsx";
+import { cn } from "./types/cn";
 
 type ModalSize = "sm" | "md" | "lg";
 type ModalProps = {
@@ -69,7 +69,7 @@ export function Modal({
         aria-modal="true"
         aria-labelledby={title ? titleId : undefined}
         aria-describedby={description ? descriptionId : undefined}
-        className={clsx(
+        className={cn(
           "modal-content relative w-full rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200",
           "overflow-hidden border border-white/40",
           sizeStyles[size],

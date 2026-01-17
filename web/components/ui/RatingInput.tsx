@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "./types/cn"
 
 const STARS = [1, 2, 3, 4, 5];
 type RatingInputProps = {
@@ -20,7 +20,7 @@ export function RatingInput({ value, onChange, label = "Rating", error }: Rating
               key={star}
               type="button"
               onClick={() => onChange(star)}
-              className={clsx(
+              className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-full border text-lg transition",
                 selected
                   ? "border-amber-200 bg-amber-50 text-amber-500 shadow-sm"

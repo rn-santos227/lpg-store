@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "./types/cn";
 import {
   FocusEvent,
   HTMLAttributes,
@@ -68,7 +68,7 @@ export function Tooltip<T extends HTMLElement = HTMLElement>({
         role="tooltip"
         id={tooltipId}
         aria-hidden={!open}
-        className={clsx(
+        className={cn(
           "pointer-events-none absolute z-30 max-w-xs rounded-lg bg-slate-900 px-3 py-2 text-xs font-medium text-white shadow-lg ring-1 ring-black/5 transition-all duration-150",
           "transform-gpu",
           open ? "opacity-100 scale-100" : "opacity-0 scale-95",
