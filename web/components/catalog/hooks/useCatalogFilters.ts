@@ -81,7 +81,7 @@ export function useCatalogFilters({
   ]);
 
   const hasFilters =
-    searchTerm.trim() ||
+    Boolean(searchTerm.trim()) ||
     selectedCategory !== "all" ||
     selectedSize !== "all" ||
     availableOnly ||
