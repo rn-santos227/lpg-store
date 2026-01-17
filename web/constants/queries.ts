@@ -54,6 +54,16 @@ export const servicesQuery = `
   }
 `;
 
+export const productSearchQuery = `
+  *[_type == "product" && (name match $term || description match $term)]
+  | order(name asc){
+    _id,
+    name,
+    "slug": slug.current,
+    description
+  }
+`;
+
 export const productCatalogQuery = `
   *[_type == "product"]
   | order(_createdAt desc){
