@@ -80,6 +80,12 @@ export const productCatalogQuery = `
   }
 `;
 
+export const productIdQuery = `
+  *[_type == "product" && slug.current == $slug][0]{
+    _id
+  }
+`;
+
 export const productDetailQuery = `
   *[_type == "product" && slug.current == $slug][0]{
     _id,
