@@ -45,9 +45,39 @@ export default {
       type: 'text',
     },
     {
-      name: 'image',
+      name: 'primaryImage',
+      title: 'Primary Image',
       type: 'image',
+      description: 'Optional primary product photo.',
       options: { hotspot: true },
+      validation: (Rule: Rule) =>
+        Rule.custom((value, context) => {
+          const gallery = context.document?.gallery as unknown[] | undefined
+
+          if (!value && gallery && gallery.length > 0) {
+            return 'Primary image is required when gallery images are provided.'
+          }
+
+          return true
+        }),
+    },
+    {
+      name: 'gallery',
+      title: 'Gallery Images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      description: 'Optional additional images for the product gallery.',
+      validation: (Rule: Rule) =>
+        Rule.custom((value, context) => {
+          const primaryImage = context.document?.primaryImage
+          const images = value as unknown[] | undefined
+
+          if (images && images.length > 0 && !primaryImage) {
+            return 'Add a primary image when providing gallery images.'
+          }
+
+          return true
+        }),
     },
     {
       name: 'available',
