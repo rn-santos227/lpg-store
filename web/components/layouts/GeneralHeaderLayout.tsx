@@ -14,7 +14,7 @@ export default function GeneralHeaderLayout() {
             A4R
           </span>
           <div>
-            <p className="text-lg font-semibold text-slate-900">A4R LPG Shop</p>
+            <p className="text-lg font-semibold text-slate-900">A4R LPG Trading</p>
             <p className="text-sm text-slate-500">Marketplace for clean energy essentials</p>
           </div>
         </div>
