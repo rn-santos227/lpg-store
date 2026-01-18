@@ -170,6 +170,26 @@ export default function ProductDetailPageComponent({
             </div>
           </div>
         </section>
+
+        <section className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+         <div className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+                Customer reviews
+              </p>
+              <h2 className="text-3xl font-semibold text-slate-900">
+                What people say about {product.name}
+              </h2>
+              <p className="text-sm text-slate-500">
+                {approvedReviews.length
+                  ? `${approvedReviews.length} verified review${
+                      approvedReviews.length > 1 ? "s" : ""
+                    }`
+                  : "No verified reviews yet. Be the first to share your experience."}
+              </p>
+            </div>
+         </div>
+        </section>
       </main>
       <GeneralFooterLayout />
 
