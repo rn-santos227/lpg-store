@@ -48,6 +48,5 @@ export default {
       type: 'boolean',
       initialValue: true,
     },
-
   ],
 }
