@@ -54,5 +54,12 @@ export default function ProductDetailPageComponent({
       productKey: product.slug ?? product.name,
     });
 
-
+  return (
+    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+      <GeneralHeaderLayout />
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-32 pt-12">
+      </main>
+      <GeneralFooterLayout />
+    </div>
+  );
 }
