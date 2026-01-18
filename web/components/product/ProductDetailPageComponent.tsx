@@ -124,6 +124,19 @@ export default function ProductDetailPageComponent({
               </div>
             </div>
           </div>
+
+          <div className="space-y-6">
+            <div className="space-y-4">
+              {product.featured ? (
+                <Badge tone="info">Featured product</Badge>
+              ) : null}
+              <h1 className="text-4xl font-semibold text-slate-900">{product.name}</h1>
+              <p className="text-base text-slate-600">
+                {product.description ??
+                  "Contact our team to learn more about this LPG product and delivery options."}
+              </p>
+            </div>
+          </div>
         </section>
       </main>
       <GeneralFooterLayout />
