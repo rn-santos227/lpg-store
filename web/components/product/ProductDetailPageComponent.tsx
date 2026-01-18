@@ -128,13 +128,26 @@ export default function ProductDetailPageComponent({
           <div className="space-y-6">
             <div className="space-y-4">
               {product.featured ? (
-                <Badge tone="info">Featured product</Badge>
+                <Badge tone="info">Featured Product</Badge>
               ) : null}
               <h1 className="text-4xl font-semibold text-slate-900">{product.name}</h1>
               <p className="text-base text-slate-600">
                 {product.description ??
                   "Contact our team to learn more about this LPG product and delivery options."}
               </p>
+            </div>
+
+            <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+                Delivery Highlights
+              </p>
+              <ul className="mt-3 space-y-2 text-sm text-emerald-900">
+                <li>✔ Same-day delivery within service areas</li>
+                <li>✔ Safety-checked cylinder and regulator inspection</li>
+              </ul>
+              <Button className="mt-4 w-full" href="/#support">
+                Request a Refill Quote
+              </Button>
             </div>
           </div>
         </section>
