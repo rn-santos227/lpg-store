@@ -1,18 +1,25 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { Category } from "../../../@types/category";
 import type { Product } from "../../../@types/product";
+
 
 const normalize = (value: string) => value.toLowerCase();
 
 type UseCatalogFiltersProps = {
   products: Product[];
+  categories?: Category[];
   initialSearch?: string;
+  initialCategory?: string;
 };
 
 export function useCatalogFilters({
   products,
+  categories = [],
   initialSearch = "",
+  initialCategory,
+
 }: UseCatalogFiltersProps) {
   const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [selectedCategory, setSelectedCategory] = useState("all");
