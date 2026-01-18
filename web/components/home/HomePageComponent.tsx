@@ -169,6 +169,7 @@ export default function HomePageComponent() {
                   description={product.description ?? undefined}
                   price={formatPrice(product.price)}
                   image={product.imageUrl}
+                  href={product.slug ? `/catalog/${product.slug}` : undefined}
                   badge={product.featured ? "Featured" : undefined}
                   actionLabel="Add to cart"
                   actionHref={
