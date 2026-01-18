@@ -41,4 +41,10 @@ const getAvailabilityTone = (available?: boolean | null) =>
 const getAvailabilityLabel = (available?: boolean | null) =>
   available ? "Available for order" : "Limited availability";
 
+export default function ProductDetailPageComponent({
+  product,
+  reviews,
+}: ProductDetailPageComponentProps) {
 
+
+}
