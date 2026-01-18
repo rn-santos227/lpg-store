@@ -1,5 +1,6 @@
 "use client";
 
+import type { Category } from "../../@types/category";
 import type { Product } from "../../@types/product";
 import { ProductCard } from "../product/ProductCardComponent";
 import { useCatalogFilters } from "./hooks/useCatalogFilters";
@@ -7,6 +8,8 @@ import { ProductFilterComponent } from "./ProductFilterComponent";
 
 type ProductCatalogSectionProps = {
   products: Product[];
+  categories?: Category[];
+  initialCategory?: string;
   initialSearch?: string;
 };
 
@@ -20,6 +23,8 @@ const formatPrice = (price?: number | null) => {
 
 export function ProductCatalogSection({
   products,
+  categories,
+  initialCategory,
   initialSearch,
 }: ProductCatalogSectionProps) {
   const {
@@ -38,7 +43,7 @@ export function ProductCatalogSection({
     setSelectedSize,
     sizeOptions,
     resetFilters,
-  } = useCatalogFilters({ products, initialSearch });
+  } = useCatalogFilters({ products, categories, initialCategory, initialSearch });
 
   return (
     <section className="space-y-8">
