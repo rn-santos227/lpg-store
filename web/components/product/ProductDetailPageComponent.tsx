@@ -19,3 +19,26 @@ import {
   RatingDisplay,
   SlideShow,
 } from "../ui";
+
+type ProductDetailPageComponentProps = {
+  product: Product;
+  reviews: Review[];
+};
+
+const formatPrice = (price?: number | null) => {
+  if (!price) return "Contact for price";
+  return `₱${price.toLocaleString("en-PH")}`;
+};
+
+const formatSize = (sizeKg?: number | null) => {
+  if (!sizeKg) return "Size varies";
+  return `${sizeKg}kg`;
+};
+
+const getAvailabilityTone = (available?: boolean | null) =>
+  available ? "success" : "warning";
+
+const getAvailabilityLabel = (available?: boolean | null) =>
+  available ? "Available for order" : "Limited availability";
+
+
