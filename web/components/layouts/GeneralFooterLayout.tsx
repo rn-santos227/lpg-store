@@ -1,8 +1,8 @@
 const footerLinks = [
-  { label: "Delivery Coverage", href: "#support" },
-  { label: "Safety Tips", href: "#support" },
-  { label: "Partner with Us", href: "#support" },
-  { label: "Contact", href: "#support" },
+  { label: "Delivery Coverage", href: "/support#coverage" },
+  { label: "Safety Tips", href: "/support#safety" },
+  { label: "Partner with Us", href: "/support#partners" },
+  { label: "Contact", href: "/support#contact" },
 ];
 
 export default function GeneralFooterLayout() {
