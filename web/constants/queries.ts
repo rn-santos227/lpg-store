@@ -92,6 +92,7 @@ export const productDetailQuery = `
     name,
     "slug": slug.current,
     "categoryId": category->_id,
+    "categoryName": category->title,
     sizeKg,
     price,
     description,

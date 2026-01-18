@@ -156,7 +156,10 @@ export default function ProductDetailPageComponent({
               </p>
               <ul className="mt-3 space-y-2 text-sm text-slate-600">
                 <li>
+               <li>
                   <span className="font-semibold text-slate-700">Category:</span>{" "}
+                  {product.categoryName ?? "LPG essentials"}
+                </li>
                 </li>
                 <li>
                   <span className="font-semibold text-slate-700">Availability:</span>{" "}
@@ -172,7 +175,7 @@ export default function ProductDetailPageComponent({
         </section>
 
         <section className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-         <div className="space-y-6">
+          <div className="space-y-6">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
                 Customer reviews
@@ -207,7 +210,13 @@ export default function ProductDetailPageComponent({
                 </p>
               )}
             </div>
-         </div>
+          </div>
+
+          <ReviewFormComponent
+            productName={product.name}
+            productSlug={product.slug ?? ""}
+            onSubmit={submitReview}
+          />
         </section>
       </main>
       <GeneralFooterLayout />
