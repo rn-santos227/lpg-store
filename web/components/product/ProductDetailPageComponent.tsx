@@ -60,6 +60,23 @@ export default function ProductDetailPageComponent({
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-32 pt-12">
       </main>
       <GeneralFooterLayout />
+
+      <Modal
+        open={Boolean(selectedImage)}
+        onClose={() => setSelectedImage(null)}
+        title="Product image"
+        description="Tap outside the image to close."
+        size="lg"
+      >
+        {selectedImage ? (
+          <ImageViewer
+            src={selectedImage}
+            alt={product.name}
+            className="h-96 w-full"
+            imgClassName="object-contain"
+          />
+        ) : null}
+      </Modal>
     </div>
   );
 }
