@@ -19,7 +19,6 @@ export function useCatalogFilters({
   categories = [],
   initialSearch = "",
   initialCategory,
-
 }: UseCatalogFiltersProps) {
   const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -32,11 +31,49 @@ export function useCatalogFilters({
   }, [initialSearch]);
 
   const categoryOptions = useMemo(() => {
-    const categories = new Set(
-      products.map((product) => product.categoryId ?? "Uncategorized"),
+
+    const options: { value: string; label: string }[] = [
+      { value: "all", label: "All categories" },
+    ];
+    const seen = new Set<string>(["all"]);
+
+    categories.forEach((category) => {
+      if (seen.has(category.id)) {
+        return;
+      }
+      options.push({ value: category.id, label: category.title });
+      seen.add(category.id);
+    });
+
+    const hasUncategorized = products.some((product) => !product.categoryId);
+    if (hasUncategorized && !seen.has("Uncategorized")) {
+      options.push({ value: "Uncategorized", label: "Uncategorized" });
+      seen.add("Uncategorized");
+    }
+
+    products.forEach((product) => {
+      const categoryId = product.categoryId;
+      if (!categoryId || seen.has(categoryId)) {
+        return;
+      }
+      options.push({ value: categoryId, label: categoryId });
+      seen.add(categoryId);
+    });
+
+    return options;
+  }, [categories, products]);
+
+  useEffect(() => {
+    if (!initialCategory) {
+      setSelectedCategory("all");
+      return;
+    }
+
+    const hasCategory = categoryOptions.some(
+      (option) => option.value === initialCategory,
     );
-    return ["all", ...Array.from(categories)];
-  }, [products]);
+    setSelectedCategory(hasCategory ? initialCategory : "all");
+  }, [categoryOptions, initialCategory]);
 
   const sizeOptions = useMemo(() => {
     const sizes = new Set(
