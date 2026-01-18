@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 
 type ProductFilterComponentProps = {
   availableOnly: boolean;
-  categoryOptions: string[];
+  categoryOptions: { value: string; label: string }[];
   featuredOnly: boolean;
   filteredCount: number;
   hasFilters: boolean;
@@ -61,8 +61,8 @@ export function ProductFilterComponent({
               className="mt-2 w-full rounded-full border border-emerald-100 bg-white px-4 py-2 text-sm text-slate-700 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
             >
               {categoryOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option === "all" ? "All categories" : option}
+                <option key={option.value} value={option.value}>
+                  {option.label}
                 </option>
               ))}
             </select>
