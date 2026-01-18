@@ -67,6 +67,36 @@ export default function ProductDetailPageComponent({
             {getAvailabilityLabel(product.available)}
           </Badge>
         </div>
+
+
+        <section className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="space-y-6">
+            {galleryImages.length ? (
+              <SlideShow ariaLabel={`${product.name} gallery`} className="rounded-3xl">
+                {galleryImages.map((image) => (
+                  <ImageViewer
+                    key={image}
+                    src={image}
+                    alt={product.name}
+                    className="h-80 w-full sm:h-104"
+                    imgClassName="object-cover"
+                    onClick={() => setSelectedImage(image)}
+                    actionLabel="Inspect image"
+                  />
+                ))}
+              </SlideShow>
+            ) : (
+              <ImageViewer
+                src={product.imageUrl}
+                alt={product.name}
+                className="h-80 w-full sm:h-104"
+                imgClassName="object-cover"
+                onClick={() => setSelectedImage(product.imageUrl ?? null)}
+                actionLabel="Inspect image"
+              />
+            )}     
+          </div>
+        </section>
       </main>
       <GeneralFooterLayout />
 
