@@ -51,6 +51,24 @@ export default {
       ],
       validation: (Rule: Rule) => Rule.required().min(1),
     },
-
+    {
+      name: 'mapEmbedUrl',
+      title: 'Google Map Embed URL',
+      type: 'url',
+      description:
+        'Paste the Google Maps embed link (https://www.google.com/maps/embed?...).',
+    },
+    {
+      name: 'mapLink',
+      title: 'Google Map Link',
+      type: 'url',
+      description: 'Optional: link to open the map in a new tab.',
+    },
   ],
+  preview: {
+    select: {
+      title: 'address',
+      subtitle: 'contactNumber',
+    },
+  },
 }
