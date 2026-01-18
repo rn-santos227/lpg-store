@@ -1,9 +1,10 @@
-import CatalogPageComponent from "../../components/catalog/CatalogComponentPage";
+import CatalogPageComponent from "../../components/catalog/CatalogPageComponent";
 
 type CatalogPageProps = {
-  searchParams?: {
+  searchParams?: Promise<{
+    category?: string;
     q?: string;
-  };
+  }>;
 };
 
 export default function CatalogPage({ searchParams }: CatalogPageProps) {

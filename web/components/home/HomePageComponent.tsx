@@ -109,7 +109,9 @@ export default function HomePageComponent() {
                   className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-700 hover:border-slate-300"
                   variant="ghost"
                   href={
-                    category.slug ? `/categories/${category.slug}` : "#support"
+                    category.id
+                      ? `/catalog?category=${encodeURIComponent(category.id)}`
+                      : "#support"
                   }
                 >
                   {category.title}
