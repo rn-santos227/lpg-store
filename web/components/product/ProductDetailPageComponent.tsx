@@ -188,6 +188,25 @@ export default function ProductDetailPageComponent({
                   : "No verified reviews yet. Be the first to share your experience."}
               </p>
             </div>
+
+           <div className="space-y-4">
+              {localReviews.length ? (
+                localReviews.map((review) => (
+                  <ReviewCardComponent
+                    key={review.id}
+                    customerName={review.customerName}
+                    rating={review.rating}
+                    comment={review.comment}
+                    createdAt={review.createdAt}
+                    status={review.status}
+                  />
+                ))
+              ) : (
+                <p className="text-sm text-slate-500">
+                  No reviews yet. Share your feedback using the form.
+                </p>
+              )}
+            </div>
          </div>
         </section>
       </main>
