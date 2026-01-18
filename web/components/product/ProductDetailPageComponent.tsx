@@ -58,6 +58,15 @@ export default function ProductDetailPageComponent({
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
       <GeneralHeaderLayout />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-32 pt-12">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-500">
+          <Link href="/catalog" className="flex items-center gap-2 text-emerald-600">
+            <span aria-hidden>←</span>
+            Back to Catalog
+          </Link>
+          <Badge tone={getAvailabilityTone(product.available)}>
+            {getAvailabilityLabel(product.available)}
+          </Badge>
+        </div>
       </main>
       <GeneralFooterLayout />
 
