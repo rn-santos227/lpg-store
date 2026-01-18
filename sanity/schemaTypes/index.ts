@@ -3,9 +3,9 @@ import contact from './contact'
 import customer from './customer'
 import inquiry from "./inquiry"
 import inventory from './inventory'
+import order from './order'
 import product from './product'
 import promotion from './promotion'
-import order from './order'
 import review from './review'
 import service from './service'
 
@@ -15,9 +15,9 @@ export const schemaTypes = [
   customer,
   inquiry,
   inventory,
+  order,
   promotion,
   product,
-  order,
   review,
   service,
 ]
