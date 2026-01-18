@@ -125,3 +125,17 @@ export const servicesCatalogQuery = `
     "imageUrl": image.asset->url
   }
 `;
+
+export const contactInfoQuery = `
+  *[_type == "contact"][0]{
+    address,
+    contactNumber,
+    email,
+    operationsHours[]{
+      label,
+      hours
+    },
+    mapEmbedUrl,
+    mapLink
+  }
+`;
