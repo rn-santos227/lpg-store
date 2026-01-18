@@ -45,6 +45,14 @@ export default function ProductDetailPageComponent({
   product,
   reviews,
 }: ProductDetailPageComponentProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const galleryImages = useProductGallery({ product });
+  const { localReviews, approvedReviews, averageRating, submitReview } =
+    useProductReviews({
+      reviews,
+      productSlug: product.slug ?? null,
+      productKey: product.slug ?? product.name,
+    });
 
 
 }
