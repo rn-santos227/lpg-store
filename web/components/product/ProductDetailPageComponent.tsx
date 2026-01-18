@@ -94,7 +94,35 @@ export default function ProductDetailPageComponent({
                 onClick={() => setSelectedImage(product.imageUrl ?? null)}
                 actionLabel="Inspect image"
               />
-            )}     
+            )}
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Price
+                </p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  {formatPrice(product.price)}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Tank size
+                </p>
+                <p className="text-2xl font-semibold text-slate-900">
+                  {formatSize(product.sizeKg)}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Rating
+                </p>
+                <RatingDisplay
+                  rating={averageRating ?? undefined}
+                  emptyLabel="No reviews yet"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
