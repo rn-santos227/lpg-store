@@ -9,14 +9,17 @@ type ProductFilterComponentProps = {
   featuredOnly: boolean;
   filteredCount: number;
   hasFilters: boolean;
+  priceMax: string;
+  priceMin: string;
   searchTerm: string;
   selectedCategory: string;
   selectedSize: string;
-  sizeOptions: string[];
   onAvailableChange: (value: boolean) => void;
   onFeaturedChange: (value: boolean) => void;
   onSearchChange: (value: string) => void;
   onCategoryChange: (value: string) => void;
+  onPriceMaxChange: (value: string) => void;
+  onPriceMinChange: (value: string) => void;
   onSizeChange: (value: string) => void;
   onReset: () => void;
 };
@@ -27,14 +30,17 @@ export function ProductFilterComponent({
   featuredOnly,
   filteredCount,
   hasFilters,
+  priceMax,
+  priceMin,
   searchTerm,
   selectedCategory,
   selectedSize,
-  sizeOptions,
   onAvailableChange,
   onFeaturedChange,
   onSearchChange,
   onCategoryChange,
+  onPriceMaxChange,
+  onPriceMinChange,
   onSizeChange,
   onReset,
 }: ProductFilterComponentProps) {
