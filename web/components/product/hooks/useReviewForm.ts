@@ -2,13 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 
-type ReviewFormValues = {
-  name: string;
-  rating: number;
-  comment: string;
-};
-
-type ReviewFormErrors = Partial<Record<keyof ReviewFormValues, string>>;
+import {
+  validateReviewForm,
+  type ReviewFormErrors,
+  type ReviewFormValues,
+} from "../utils/reviewValidators";
 
 type UseReviewFormProps = {
   productSlug: string;
@@ -33,17 +31,7 @@ export const useReviewForm = ({ productSlug, onSuccess }: UseReviewFormProps) =>
   };
 
   const validate = () => {
-    const nextErrors: ReviewFormErrors = {};
-
-    if (!values.name.trim()) {
-      nextErrors.name = "Please share your name.";
-    }
-    if (values.rating <= 0) {
-      nextErrors.rating = "Select a rating.";
-    }
-    if (!values.comment.trim()) {
-      nextErrors.comment = "Tell us about your experience.";
-    }
+    const nextErrors = validateReviewForm(values);
 
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
