@@ -47,8 +47,10 @@ export default async function CatalogPageComponent({
           </p>
         </section>
 
-         <ProductCatalogSection
+        <ProductCatalogSection
           products={products}
+          categories={categories}
+          initialCategory={categoryId}
           initialSearch={searchQuery}
         />
       </main>
