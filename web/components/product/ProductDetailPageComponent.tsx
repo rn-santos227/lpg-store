@@ -149,6 +149,25 @@ export default function ProductDetailPageComponent({
                 Request a Refill Quote
               </Button>
             </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Product details
+              </p>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                <li>
+                  <span className="font-semibold text-slate-700">Category:</span>{" "}
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-700">Availability:</span>{" "}
+                  {getAvailabilityLabel(product.available)}
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-700">Refill Size:</span>{" "}
+                  {formatSize(product.sizeKg)}
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </main>
