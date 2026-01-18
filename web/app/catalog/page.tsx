@@ -7,6 +7,12 @@ type CatalogPageProps = {
   }>;
 };
 
-export default function CatalogPage({ searchParams }: CatalogPageProps) {
-  return <CatalogPageComponent searchQuery={searchParams?.q ?? ""} />;
+export default async function CatalogPage({ searchParams }: CatalogPageProps) {
+  const resolvedSearchParams = (await searchParams) ?? {};
+  return (
+    <CatalogPageComponent
+      categoryId={resolvedSearchParams.category ?? ""}
+      searchQuery={resolvedSearchParams.q ?? ""}
+    />
+  );
 }
