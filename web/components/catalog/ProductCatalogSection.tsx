@@ -33,15 +33,18 @@ export function ProductCatalogSection({
     featuredOnly,
     filteredProducts,
     hasFilters,
+    priceMax,
+    priceMin,
     searchTerm,
     selectedCategory,
     selectedSize,
     setAvailableOnly,
     setFeaturedOnly,
+    setPriceMax,
+    setPriceMin,
     setSearchTerm,
     setSelectedCategory,
     setSelectedSize,
-    sizeOptions,
     resetFilters,
   } = useCatalogFilters({ products, categories, initialCategory, initialSearch });
 
@@ -64,13 +67,16 @@ export function ProductCatalogSection({
         featuredOnly={featuredOnly}
         filteredCount={filteredProducts.length}
         hasFilters={hasFilters}
+        priceMax={priceMax}
+        priceMin={priceMin}
         searchTerm={searchTerm}
         selectedCategory={selectedCategory}
         selectedSize={selectedSize}
-        sizeOptions={sizeOptions}
         onAvailableChange={setAvailableOnly}
         onCategoryChange={setSelectedCategory}
         onFeaturedChange={setFeaturedOnly}
+        onPriceMaxChange={setPriceMax}
+        onPriceMinChange={setPriceMin}
         onReset={resetFilters}
         onSearchChange={setSearchTerm}
         onSizeChange={setSelectedSize}

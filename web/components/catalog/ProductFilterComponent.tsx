@@ -98,7 +98,7 @@ export function ProductFilterComponent({
             onChange={(event) =>
               onPriceMinChange(event.target.value.replace(/[^0-9]/g, ""))
             }
-            placeholder="₱0"
+            placeholder="₱ 0"
           />
 
           <TextField
@@ -112,7 +112,7 @@ export function ProductFilterComponent({
             onChange={(event) =>
               onPriceMaxChange(event.target.value.replace(/[^0-9]/g, ""))
             }
-            placeholder="₱0"
+            placeholder="₱ 0"
           />
         </div>
 

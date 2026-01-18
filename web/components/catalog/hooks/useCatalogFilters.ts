@@ -22,7 +22,9 @@ export function useCatalogFilters({
 }: UseCatalogFiltersProps) {
   const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedSize, setSelectedSize] = useState("all");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
   const [availableOnly, setAvailableOnly] = useState(false);
   const [featuredOnly, setFeaturedOnly] = useState(false);
 
@@ -75,17 +77,14 @@ export function useCatalogFilters({
     setSelectedCategory(hasCategory ? initialCategory : "all");
   }, [categoryOptions, initialCategory]);
 
-  const sizeOptions = useMemo(() => {
-    const sizes = new Set(
-      products
-        .map((product) => product.sizeKg)
-        .filter((value): value is number => value !== null && value !== undefined),
-    );
-    return ["all", ...Array.from(sizes).sort((a, b) => a - b).map(String)];
-  }, [products]);
-
   const filteredProducts = useMemo(() => {
     const normalizedSearch = normalize(searchTerm.trim());
+    const parsedSize =
+      selectedSize.trim() !== "" ? Number(selectedSize) : Number.NaN;
+    const parsedMin =
+      priceMin.trim() !== "" ? Number(priceMin) : Number.NaN;
+    const parsedMax =
+      priceMax.trim() !== "" ? Number(priceMax) : Number.NaN;
 
     return products.filter((product) => {
       const matchesSearch =
@@ -97,12 +96,12 @@ export function useCatalogFilters({
       const matchesCategory =
         selectedCategory === "all" || categoryValue === selectedCategory;
 
-      const sizeValue =
-        product.sizeKg !== null && product.sizeKg !== undefined
-          ? String(product.sizeKg)
-          : null;
       const matchesSize =
-        selectedSize === "all" || (sizeValue !== null && sizeValue === selectedSize);
+        Number.isNaN(parsedSize) || product.sizeKg === parsedSize;
+      const matchesPriceMin =
+        Number.isNaN(parsedMin) || product.price >= parsedMin;
+      const matchesPriceMax =
+        Number.isNaN(parsedMax) || product.price <= parsedMax;
 
       const matchesAvailability = !availableOnly || product.available;
       const matchesFeatured = !featuredOnly || product.featured;
@@ -112,7 +111,9 @@ export function useCatalogFilters({
         matchesCategory &&
         matchesSize &&
         matchesAvailability &&
-        matchesFeatured
+        matchesFeatured &&
+        matchesPriceMin &&
+        matchesPriceMax
       );
     });
   }, [
@@ -120,6 +121,8 @@ export function useCatalogFilters({
     searchTerm,
     selectedCategory,
     selectedSize,
+    priceMin,
+    priceMax,
     availableOnly,
     featuredOnly,
   ]);
@@ -127,14 +130,18 @@ export function useCatalogFilters({
   const hasFilters =
     Boolean(searchTerm.trim()) ||
     selectedCategory !== "all" ||
-    selectedSize !== "all" ||
+    Boolean(selectedSize.trim()) ||
+    Boolean(priceMin.trim()) ||
+    Boolean(priceMax.trim()) ||
     availableOnly ||
     featuredOnly;
 
   const resetFilters = () => {
     setSearchTerm("");
     setSelectedCategory("all");
-    setSelectedSize("all");
+    setSelectedSize("");
+    setPriceMin("");
+    setPriceMax("");
     setAvailableOnly(false);
     setFeaturedOnly(false);
   };
@@ -145,15 +152,18 @@ export function useCatalogFilters({
     featuredOnly,
     filteredProducts,
     hasFilters,
+    priceMax,
+    priceMin,
     searchTerm,
     selectedCategory,
     selectedSize,
     setAvailableOnly,
     setFeaturedOnly,
+    setPriceMax,
+    setPriceMin,
     setSearchTerm,
     setSelectedCategory,
     setSelectedSize,
-    sizeOptions,
     resetFilters,
   };
 }
