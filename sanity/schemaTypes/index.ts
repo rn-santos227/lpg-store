@@ -1,4 +1,5 @@
 import category from './category'
+import contact from './contact'
 import customer from './customer'
 import inquiry from "./inquiry"
 import inventory from './inventory'
@@ -10,6 +11,7 @@ import service from './service'
 
 export const schemaTypes = [
   category,
+  contact,
   customer,
   inquiry,
   inventory,

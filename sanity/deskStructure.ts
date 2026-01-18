@@ -107,6 +107,23 @@ export const structure: StructureResolver = (S) =>
             .defaultOrdering([{ field: 'name', direction: 'asc' }])
         ),
 
+      S.listItem()
+        .title('Site Settings')
+        .child(
+          S.list()
+            .title('Site Settings')
+            .items([
+              S.listItem()
+                .title('Contact Information')
+                .schemaType('contactInfo')
+                .child(
+                  S.document()
+                    .schemaType('contactInfo')
+                    .documentId('contactInfo')
+                ),
+            ])
+        ),
+
       S.divider(),
 
       S.listItem()
