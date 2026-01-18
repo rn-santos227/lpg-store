@@ -23,6 +23,34 @@ export default {
       type: 'string',
       validation: (Rule: Rule) => Rule.required().email(),
     },
+    {
+      name: 'operationsHours',
+      title: 'Operations Hours',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Day',
+              type: 'string',
+              validation: (Rule: Rule) => Rule.required(),
+            },
+            {
+              name: 'hours',
+              title: 'Hours',
+              type: 'string',
+              validation: (Rule: Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'hours' },
+          },
+        },
+      ],
+      validation: (Rule: Rule) => Rule.required().min(1),
+    },
 
   ],
 }
