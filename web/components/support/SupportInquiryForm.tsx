@@ -74,6 +74,18 @@ export default function SupportInquiryForm() {
             placeholder="Maria Santos"
             error={errors.name}
           />
+
+          <TextField
+            label="Email address"
+            type="email"
+            value={values.email}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              updateField("email", event.target.value)
+            }
+            placeholder="maria@email.com"
+            error={errors.email}
+          />
+
        </div>
       </form>
     </>
