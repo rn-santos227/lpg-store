@@ -12,9 +12,17 @@ export default function ContactSection({ contact }: ContactSectionProps) {
       helper: "Visit us for refills, cylinder checks, and safety support.",
     },
     {
-      title: "Contact number",
-      detail: contact.contactNumber,
-      helper: "Hotline for urgent safety issues and delivery updates.",
+      title: "Contact numbers",
+      detail: (
+        <ul className="space-y-1">
+          {contact.contactNumbers.map((item) => (
+            <li key={`${item.label}-${item.number}`} className="text-base font-semibold text-amber-700">
+              <span className="text-slate-600">{item.label}:</span> {item.number}
+            </li>
+          ))}
+        </ul>
+      ),
+      helper: "Multiple lines are available for urgent support and deliveries.",
     },
     {
       title: "Email support",
@@ -28,6 +36,26 @@ export default function ContactSection({ contact }: ContactSectionProps) {
         .join(" • "),
       helper: "Response times may vary on holidays.",
     },
+    {
+      title: "Social media",
+      detail: (
+        <ul className="space-y-1">
+          {contact.socialMedia.map((item) => (
+            <li key={`${item.platform}-${item.url}`}>
+              <a
+                className="text-base font-semibold text-amber-700 hover:text-amber-600"
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item.platform}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ),
+      helper: "Follow us for promos, delivery updates, and safety tips.",
+    },
   ];
 
   return (
@@ -39,17 +67,17 @@ export default function ContactSection({ contact }: ContactSectionProps) {
         {contactCards.map((card) => (
           <div
             key={card.title}
-            className="rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm"
+            className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm"
           >
             <h2 className="text-lg font-semibold text-slate-900">{card.title}</h2>
-            <p className="mt-2 text-xl font-semibold text-emerald-700">
+            <div className="mt-2 text-xl font-semibold text-amber-700">
               {card.detail}
-            </p>
+            </div>
             <p className="mt-1 text-sm text-slate-500">{card.helper}</p>
           </div>
         ))}
       </div>
-      <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="rounded-3xl border border-amber-100 bg-white p-4 shadow-sm">
         <div className="flex items-center justify-between gap-3 px-2 pb-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -61,7 +89,7 @@ export default function ContactSection({ contact }: ContactSectionProps) {
           </div>
           {contact.mapLink ? (
             <a
-              className="text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
+              className="text-sm font-semibold text-amber-700 transition hover:text-amber-600"
               href={contact.mapLink}
               target="_blank"
               rel="noreferrer"
