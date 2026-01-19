@@ -107,6 +107,35 @@ export default function SupportInquiryForm() {
             helperText="Optional, if this relates to an order."
             error={errors.orderId}
           />
+
+        <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
+          <span>Inquiry topic</span>
+          <select
+            className={`w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 ${
+              errors.topic
+                ? "border-rose-300 focus:border-rose-400 focus:ring-rose-100"
+                : ""
+            }`}
+            value={values.topic}
+            onChange={(event) => updateField("topic", event.target.value)}
+          >
+            <option value="">Select a topic</option>
+            {inquiryTopics.map((topic) => (
+              <option key={topic} value={topic}>
+                {topic}
+              </option>
+            ))}
+          </select>
+          {errors.topic ? (
+            <span className="text-xs font-normal text-rose-600">
+              {errors.topic}
+            </span>
+          ) : (
+            <span className="text-xs font-normal text-gray-500">
+              Choose the closest match so we can route your request.
+            </span>
+          )}
+        </label>
        </div>
       </form>
     </>
