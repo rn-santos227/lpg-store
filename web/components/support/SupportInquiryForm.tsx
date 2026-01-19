@@ -96,6 +96,17 @@ export default function SupportInquiryForm() {
             helperText="Optional, but helpful for urgent concerns."
             error={errors.phone}
           />
+
+          <TextField
+            label="Order reference"
+            value={values.orderId}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              updateField("orderId", event.target.value)
+            }
+            placeholder="e.g. ORD-4821"
+            helperText="Optional, if this relates to an order."
+            error={errors.orderId}
+          />
        </div>
       </form>
     </>
