@@ -107,9 +107,10 @@ export default function SupportInquiryForm() {
             helperText="Optional, if this relates to an order."
             error={errors.orderId}
           />
+        </div>
 
         <label className="flex flex-col gap-1 text-sm font-medium text-gray-700">
-          <span>Inquiry topic</span>
+          <span>Inquiry Topic</span>
           <select
             className={`w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 ${
               errors.topic
@@ -136,8 +137,9 @@ export default function SupportInquiryForm() {
             </span>
           )}
         </label>
-       </div>
       </form>
+
+      <Toast toasts={toasts} onDismiss={dismissToast} />
     </>
   );
 }
