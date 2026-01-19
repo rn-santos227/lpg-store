@@ -44,4 +44,26 @@ export default function SupportInquiryForm() {
       );
     }
   }, [isSubmitted, showSuccess]);
+
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+      >
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+            Send an inquiry
+          </p>
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Tell us how we can help
+          </h2>
+          <p className="text-sm text-slate-500">
+            Share details about your delivery, refill, or safety concern and we
+            will get back to you quickly.
+          </p>
+        </div>
+      </form>
+    </>
+  );
 }
