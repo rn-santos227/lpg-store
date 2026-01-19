@@ -63,6 +63,18 @@ export default function SupportInquiryForm() {
             will get back to you quickly.
           </p>
         </div>
+
+       <div className="grid gap-4 md:grid-cols-2">
+          <TextField
+            label="Full name"
+            value={values.name}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              updateField("name", event.target.value)
+            }
+            placeholder="Maria Santos"
+            error={errors.name}
+          />
+       </div>
       </form>
     </>
   );
