@@ -12,10 +12,32 @@ export default {
       validation: (Rule: Rule) => Rule.required().min(10),
     },
     {
-      name: 'contactNumber',
-      title: 'Contact Number',
-      type: 'string',
-      validation: (Rule: Rule) => Rule.required(),
+      name: 'contactNumbers',
+      title: 'Contact Numbers',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              validation: (Rule: Rule) => Rule.required(),
+            },
+            {
+              name: 'number',
+              title: 'Number',
+              type: 'string',
+              validation: (Rule: Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'number' },
+          },
+        },
+      ],
+      validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
       name: 'email',
