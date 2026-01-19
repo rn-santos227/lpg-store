@@ -156,10 +156,8 @@ export default function ProductDetailPageComponent({
               </p>
               <ul className="mt-3 space-y-2 text-sm text-slate-600">
                 <li>
-               <li>
                   <span className="font-semibold text-slate-700">Category:</span>{" "}
                   {product.categoryName ?? "LPG essentials"}
-                </li>
                 </li>
                 <li>
                   <span className="font-semibold text-slate-700">Availability:</span>{" "}
