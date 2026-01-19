@@ -1,29 +1,29 @@
 import type { Contact } from "../../@types/contact";
 
 type ContactSectionProps = {
-  Contact: Contact;
+  contact: Contact;
 };
 
-export default function ContactSection({ Contact }: ContactSectionProps) {
+export default function ContactSection({ contact }: ContactSectionProps) {
   const contactCards = [
     {
       title: "Service address",
-      detail: Contact.address,
+      detail: contact.address,
       helper: "Visit us for refills, cylinder checks, and safety support.",
     },
     {
       title: "Contact number",
-      detail: Contact.contactNumber,
+      detail: contact.contactNumber,
       helper: "Hotline for urgent safety issues and delivery updates.",
     },
     {
       title: "Email support",
-      detail: Contact.email,
+      detail: contact.email,
       helper: "Non-urgent questions and documentation requests.",
     },
     {
       title: "Operating hours",
-      detail: Contact.operationsHours
+      detail: contact.operationsHours
         .map((item) => `${item.label}: ${item.hours}`)
         .join(" • "),
       helper: "Response times may vary on holidays.",
@@ -59,10 +59,10 @@ export default function ContactSection({ Contact }: ContactSectionProps) {
               Find our location
             </p>
           </div>
-          {Contact.mapLink ? (
+          {contact.mapLink ? (
             <a
               className="text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
-              href={Contact.mapLink}
+              href={contact.mapLink}
               target="_blank"
               rel="noreferrer"
             >
@@ -70,10 +70,10 @@ export default function ContactSection({ Contact }: ContactSectionProps) {
             </a>
           ) : null}
         </div>
-        {Contact.mapEmbedUrl ? (
+        {contact.mapEmbedUrl ? (
           <iframe
             title="LPG store map"
-            src={Contact.mapEmbedUrl}
+            src={contact.mapEmbedUrl}
             className="h-72 w-full rounded-2xl border border-slate-200"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
