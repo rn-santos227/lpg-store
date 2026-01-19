@@ -86,6 +86,16 @@ export default function SupportInquiryForm() {
             error={errors.email}
           />
 
+          <TextField
+            label="Phone number"
+            value={values.phone}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              updateField("phone", event.target.value)
+            }
+            placeholder="+63 900 123 4567"
+            helperText="Optional, but helpful for urgent concerns."
+            error={errors.phone}
+          />
        </div>
       </form>
     </>
