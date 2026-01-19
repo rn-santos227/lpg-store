@@ -9,4 +9,12 @@ import { Toast } from "../ui/Toast";
 import { useToast } from "../../hooks/useToast";
 import { useSupportInquiryForm } from "./hooks/useSupportInquiryForm";
 
+const inquiryTopics = [
+  "Delivery scheduling",
+  "Cylinder refill",
+  "Safety inspection",
+  "Bulk/business quote",
+  "Billing and payments",
+  "Other",
+];
 
