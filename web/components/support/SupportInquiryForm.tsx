@@ -137,6 +137,26 @@ export default function SupportInquiryForm() {
             </span>
           )}
         </label>
+
+        <TextArea
+          label="Message"
+          value={values.message}
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
+            updateField("message", event.target.value)
+          }
+          placeholder="Let us know what you need, including your location and preferred schedule."
+          rows={5}
+          error={errors.message}
+        />
+
+        <div className="flex flex-wrap items-center gap-3">
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Submit inquiry"}
+          </Button>
+          <p className="text-xs text-slate-500">
+            We respond Monday through Saturday, 8:00 AM to 6:00 PM.
+          </p>
+        </div>
       </form>
 
       <Toast toasts={toasts} onDismiss={dismissToast} />
