@@ -115,11 +115,11 @@ export const structure: StructureResolver = (S) =>
             .items([
               S.listItem()
                 .title('Contact Information')
-                .schemaType('contactInfo')
+                .schemaType('contact')
                 .child(
                   S.document()
-                    .schemaType('contactInfo')
-                    .documentId('contactInfo')
+                    .schemaType('contact')
+                    .documentId('contact')
                 ),
             ])
         ),

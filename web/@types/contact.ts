@@ -3,7 +3,7 @@ export type ContactOperationsHours = {
   hours: string;
 };
 
-export type ContactInfo = {
+export type Contact = {
   address: string;
   contactNumber: string;
   email: string;

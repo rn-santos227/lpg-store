@@ -153,9 +153,6 @@ export default function SupportInquiryForm() {
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Submit inquiry"}
           </Button>
-          <p className="text-xs text-slate-500">
-            We respond Monday through Saturday, 8:00 AM to 6:00 PM.
-          </p>
         </div>
       </form>
 
