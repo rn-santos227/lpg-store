@@ -48,20 +48,20 @@ export function ProductFilterComponent({
       <div className="space-y-4">
         <TextField
           label="Search by keyword"
-          labelClassName="text-emerald-900"
-          variant="emerald"
+          labelClassName="text-amber-900"
+          variant="amber"
           value={searchTerm}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search cylinders, bundles, or accessories"
         />
 
         <div className="grid gap-4 md:grid-cols-2">
-          <label className="block text-sm font-medium text-emerald-900">
+          <label className="block text-sm font-medium text-amber-900">
             Category
             <select
               value={selectedCategory}
               onChange={(event) => onCategoryChange(event.target.value)}
-              className="mt-2 w-full rounded-full border border-emerald-100 bg-white px-4 py-2 text-sm text-slate-700 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
+              className="mt-2 w-full rounded-full border border-amber-100 bg-white px-4 py-2 text-sm text-slate-700 outline-none transition focus:border-amber-300 focus:ring-2 focus:ring-amber-100"
             >
               {categoryOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -73,8 +73,8 @@ export function ProductFilterComponent({
 
           <TextField
             label="Size (kg)"
-            labelClassName="text-emerald-900"
-            variant="emerald"
+            labelClassName="text-amber-900"
+            variant="amber"
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
@@ -89,8 +89,8 @@ export function ProductFilterComponent({
         <div className="grid gap-4 md:grid-cols-2">
           <TextField
             label="Min price"
-            labelClassName="text-emerald-900"
-            variant="emerald"
+            labelClassName="text-amber-900"
+            variant="amber"
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
@@ -103,8 +103,8 @@ export function ProductFilterComponent({
 
           <TextField
             label="Max price"
-            labelClassName="text-emerald-900"
-            variant="emerald"
+            labelClassName="text-amber-900"
+            variant="amber"
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
@@ -122,7 +122,7 @@ export function ProductFilterComponent({
               type="checkbox"
               checked={availableOnly}
               onChange={(event) => onAvailableChange(event.target.checked)}
-              className="h-4 w-4 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-200"
+              className="h-4 w-4 rounded border-amber-200 text-amber-600 focus:ring-amber-200"
             />
             In-stock only
           </label>
@@ -131,14 +131,14 @@ export function ProductFilterComponent({
               type="checkbox"
               checked={featuredOnly}
               onChange={(event) => onFeaturedChange(event.target.checked)}
-              className="h-4 w-4 rounded border-emerald-200 text-emerald-600 focus:ring-emerald-200"
+              className="h-4 w-4 rounded border-amber-200 text-amber-600 focus:ring-amber-200"
             />
             Featured picks
           </label>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">
             {filteredCount} items match
           </p>
           {hasFilters ? (
