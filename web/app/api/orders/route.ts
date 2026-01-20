@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import type {
+  OrderCustomerSnapshot,
+  OrderLineItem,
+  OrderProductSnapshot,
+} from "../../../@types/order";
 import {
   customerByContactQuery,
   productOrderSnapshotQuery,
@@ -8,4 +13,32 @@ import {
   createSanityDocument,
   fetchSanityQuery,
 } from "../../../lib/sanity.api";
+
+type OrderRequestBody = {
+  slug?: string;
+  name?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  quantity?: number;
+  deliveryNotes?: string;
+  latitude?: number;
+  longitude?: number;
+};
+
+type CustomerRecord = {
+  _id: string;
+  name?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  location?: { lat: number; lng: number; _type?: "geopoint" };
+};
+
+type ProductSnapshot = {
+  _id: string;
+  name: string;
+  sizeKg?: number | null;
+  price?: number | null;
+};
 
