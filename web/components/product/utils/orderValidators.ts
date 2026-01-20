@@ -28,5 +28,12 @@ const isValidCoordinate = (value: string, min: number, max: number) => {
 
 
 export const validateProductOrder = (values: ProductOrderValues) => {
+  const nextErrors: ProductOrderErrors = {};
+  const trimmedName = values.name.trim();
+  const trimmedEmail = values.email.trim();
+  const trimmedAddress = values.address.trim();
+  const trimmedNotes = values.deliveryNotes.trim();
+  const phoneDigits = getPhoneDigits(values.phone);
+
 
 }
