@@ -22,7 +22,7 @@ export const TextField = forwardRef(function TextField(
 ) {
   const baseClasses =
     variant === "emerald"
-      ? "w-full rounded-full border border-emerald-100 bg-white px-4 py-2 text-sm text-slate-700 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
+      ? "w-full rounded-full border border-amber-100 bg-white px-4 py-2 text-sm text-slate-700 outline-none transition focus:border-amber-300 focus:ring-2 focus:ring-amber-100"
       : "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100";
 
   const fieldClasses = [
