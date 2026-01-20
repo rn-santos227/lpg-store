@@ -1,0 +1,12 @@
+export type OrderCustomerSnapshot = {
+  name: string;
+  phone: string;
+  email?: string | null;
+  address: string;
+  location?: {
+    lat: number;
+    lng: number;
+  } | null;
+};
+
+
