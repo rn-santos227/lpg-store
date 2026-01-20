@@ -15,4 +15,10 @@ export type OrderProductSnapshot = {
   price?: number | null;
 };
 
+export type OrderLineItem = {
+  productId: string;
+  productSnapshot: OrderProductSnapshot;
+  quantity: number;
+};
+
 
