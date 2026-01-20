@@ -50,6 +50,16 @@ const isValidCoordinate = (value: number | undefined, min: number, max: number) 
 
 export async function POST(request: NextRequest) {
   try {
+    const body = (await request.json()) as OrderRequestBody;
+    const slug = body.slug?.trim();
+    const name = body.name?.trim();
+    const phone = body.phone?.trim();
+    const email = normalizeEmail(body.email);
+    const address = body.address?.trim();
+    const quantity = body.quantity ?? 0;
+    const deliveryNotes = body.deliveryNotes?.trim();
+    const latitude = body.latitude;
+    const longitude = body.longitude;
 
   } catch (error) {
     const message =
