@@ -17,11 +17,11 @@ export default async function ServicesPageComponent() {
   const services = (await fetchSanityQuery<Service[]>(servicesCatalogQuery)) ?? [];
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-amber-50 text-slate-900">
       <GeneralHeaderLayout />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 pb-32 pt-12">
         <section className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
             Service information
           </p>
           <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
@@ -33,7 +33,7 @@ export default async function ServicesPageComponent() {
           </p>
         </section>
 
-        <section className="grid gap-6 rounded-3xl border border-emerald-100 bg-white p-8 md:grid-cols-3">
+        <section className="grid gap-6 rounded-3xl border border-amber-100 bg-white p-8 md:grid-cols-3">
           <div className="space-y-2">
             <h2 className="text-lg font-semibold text-slate-900">Certified team</h2>
             <p className="text-sm text-slate-600">
