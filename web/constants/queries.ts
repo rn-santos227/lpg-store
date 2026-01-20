@@ -86,6 +86,15 @@ export const productIdQuery = `
   }
 `;
 
+export const productOrderSnapshotQuery = `
+  *[_type == "product" && slug.current == $slug][0]{
+    _id,
+    name,
+    sizeKg,
+    price
+  }
+`;
+
 export const productDetailQuery = `
   *[_type == "product" && slug.current == $slug][0]{
     _id,

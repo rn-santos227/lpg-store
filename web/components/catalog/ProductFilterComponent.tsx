@@ -44,7 +44,7 @@ export function ProductFilterComponent({
   onReset,
 }: ProductFilterComponentProps) {
   return (
-    <Accordion title="Filter products" defaultOpen className="shadow-sm">
+    <Accordion title="Filter Products" defaultOpen className="shadow-sm">
       <div className="space-y-4">
         <TextField
           label="Search by keyword"
