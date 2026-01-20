@@ -20,3 +20,13 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const getPhoneDigits = (value: string) => value.replace(/\D/g, "");
 
 
+const isValidCoordinate = (value: string, min: number, max: number) => {
+  if (!value.trim()) return false;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed >= min && parsed <= max;
+};
+
+
+export const validateProductOrder = (values: ProductOrderValues) => {
+
+}
