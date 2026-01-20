@@ -48,3 +48,12 @@ const normalizeEmail = (value?: string) => value?.trim().toLowerCase() ?? "";
 const isValidCoordinate = (value: number | undefined, min: number, max: number) =>
   typeof value === "number" && Number.isFinite(value) && value >= min && value <= max;
 
+export async function POST(request: NextRequest) {
+  try {
+
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Unable to submit order.";
+    return NextResponse.json({ message }, { status: 500 });
+  }
+}
