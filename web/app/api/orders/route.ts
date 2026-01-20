@@ -42,3 +42,9 @@ type ProductSnapshot = {
   price?: number | null;
 };
 
+
+const normalizeEmail = (value?: string) => value?.trim().toLowerCase() ?? "";
+
+const isValidCoordinate = (value: number | undefined, min: number, max: number) =>
+  typeof value === "number" && Number.isFinite(value) && value >= min && value <= max;
+
