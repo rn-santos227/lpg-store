@@ -31,11 +31,11 @@ export default async function CatalogPageComponent({
   }));
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-amber-50 text-slate-900">
       <GeneralHeaderLayout />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-32 pt-12">
         <section className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
             Catalog
           </p>
           <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
