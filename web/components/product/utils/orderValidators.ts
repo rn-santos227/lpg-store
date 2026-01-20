@@ -49,4 +49,28 @@ export const validateProductOrder = (values: ProductOrderValues) => {
     nextErrors.email = "Use a valid email format.";
   }
 
+
+  if (trimmedAddress.length < 10) {
+    nextErrors.address = "Enter a full delivery address (at least 10 characters).";
+  } else if (trimmedAddress.length > 240) {
+    nextErrors.address = "Address should be 240 characters or fewer.";
+  }
+
+  if (!Number.isFinite(values.quantity) || values.quantity < 1 || values.quantity > 50) {
+    nextErrors.quantity = "Quantity must be between 1 and 50.";
+  }
+
+  if (trimmedNotes.length > 300) {
+    nextErrors.deliveryNotes = "Notes should be 300 characters or fewer.";
+  }
+
+  if (!isValidCoordinate(values.latitude, -90, 90)) {
+    nextErrors.latitude = "Enter a latitude between -90 and 90.";
+  }
+
+  if (!isValidCoordinate(values.longitude, -180, 180)) {
+    nextErrors.longitude = "Enter a longitude between -180 and 180.";
+  }
+
+  return nextErrors;
 }
