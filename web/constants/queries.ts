@@ -155,3 +155,14 @@ export const contactInfoQuery = `
     mapLink
   }
 `;
+
+export const customerByContactQuery = `
+  *[_type == "customer" && (phone == $phone || email == $email)][0]{
+    _id,
+    name,
+    phone,
+    email,
+    address,
+    location
+  }
+`;
