@@ -1,6 +1,6 @@
 export default function SafetySection() {
   return (
-    <section id="safety" className="rounded-3xl border border-slate-200 bg-white p-8">
+    <section id="safety" className="rounded-3xl border border-amber-200 bg-white p-8">
       <h2 className="text-2xl font-semibold text-slate-900">
         Safety tips while waiting for support
       </h2>
