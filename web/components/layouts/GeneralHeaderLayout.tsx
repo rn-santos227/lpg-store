@@ -16,10 +16,10 @@ export default function GeneralHeaderLayout() {
   const showResults = Boolean(trimmedQuery);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-amber-100 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-lg font-semibold text-white shadow-sm">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-600 text-lg font-semibold text-white shadow-sm">
             A4R
           </span>
           <div>
@@ -32,13 +32,13 @@ export default function GeneralHeaderLayout() {
             <form
               action="/catalog"
               method="get"
-              className="flex w-full items-center gap-2 rounded-full border border-emerald-100 bg-white px-3 py-1 text-sm text-slate-600 shadow-sm focus-within:border-emerald-300 focus-within:ring-2 focus-within:ring-emerald-100"
+              className="flex w-full items-center gap-2 rounded-full border border-amber-100 bg-white px-3 py-1 text-sm text-slate-600 shadow-sm focus-within:border-amber-300 focus-within:ring-2 focus-within:ring-amber-100"
             >
               <svg
                 aria-hidden="true"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="h-4 w-4 text-emerald-600"
+                className="h-4 w-4 text-amber-600"
               >
                 <path
                   fillRule="evenodd"
@@ -56,8 +56,8 @@ export default function GeneralHeaderLayout() {
               />
             </form>
             {showResults ? (
-              <div className="absolute left-0 right-0 top-full z-10 mt-2 rounded-2xl border border-emerald-100 bg-white shadow-lg">
-                <div className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-emerald-600">
+              <div className="absolute left-0 right-0 top-full z-10 mt-2 rounded-2xl border border-amber-100 bg-white shadow-lg">
+                <div className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-amber-600">
                   Search results
                 </div>
                 <div className="max-h-60 overflow-auto px-4 pb-4 text-sm text-slate-700">
@@ -66,10 +66,10 @@ export default function GeneralHeaderLayout() {
                   ) : hasMatch ? (
                     <ul className="space-y-3">
                       {results.map((result) => (
-                        <li key={result.id} className="rounded-lg bg-emerald-50/60 p-3">
+                        <li key={result.id} className="rounded-lg bg-amber-50/60 p-3">
                           <a
                             href={`/catalog?q=${encodeURIComponent(result.name)}`}
-                            className="block text-sm font-semibold text-emerald-700"
+                            className="block text-sm font-semibold text-amber-700"
                           >
                             {result.name}
                           </a>
@@ -93,7 +93,7 @@ export default function GeneralHeaderLayout() {
               <a
                 key={item.label}
                 href={item.href}
-                className="rounded-full px-3 py-1 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-3 py-1 transition hover:bg-amber-50 hover:text-amber-700"
               >
                 {item.label}
               </a>
