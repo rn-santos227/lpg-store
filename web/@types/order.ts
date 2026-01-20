@@ -21,4 +21,17 @@ export type OrderLineItem = {
   quantity: number;
 };
 
-
+export type Order = {
+  id: string;
+  customerId: string;
+  customerSnapshot: OrderCustomerSnapshot;
+  items: OrderLineItem[];
+  deliveryNotes?: string | null;
+  status?:
+    | "pending"
+    | "confirmed"
+    | "out_for_delivery"
+    | "delivered"
+    | "cancelled";
+  createdAt: string;
+};
