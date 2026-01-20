@@ -35,5 +35,18 @@ export const validateProductOrder = (values: ProductOrderValues) => {
   const trimmedNotes = values.deliveryNotes.trim();
   const phoneDigits = getPhoneDigits(values.phone);
 
+  if (trimmedName.length < 2) {
+    nextErrors.name = "Enter the customer name.";
+  } else if (trimmedName.length > 60) {
+    nextErrors.name = "Name should be 60 characters or fewer.";
+  }
+
+  if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    nextErrors.phone = "Enter a valid phone number.";
+  }
+
+  if (trimmedEmail && !emailPattern.test(trimmedEmail)) {
+    nextErrors.email = "Use a valid email format.";
+  }
 
 }
