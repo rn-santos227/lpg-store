@@ -9,4 +9,10 @@ export type OrderCustomerSnapshot = {
   } | null;
 };
 
+export type OrderProductSnapshot = {
+  name: string;
+  sizeKg?: number | null;
+  price?: number | null;
+};
+
 
