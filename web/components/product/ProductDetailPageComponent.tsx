@@ -55,11 +55,11 @@ export default function ProductDetailPageComponent({
     });
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-amber-50 text-slate-900">
       <GeneralHeaderLayout />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-12 px-6 pb-32 pt-12">
         <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-500">
-          <Link href="/catalog" className="flex items-center gap-2 text-emerald-600">
+          <Link href="/catalog" className="flex items-center gap-2 text-amber-600">
             <span aria-hidden>←</span>
             Back to Catalog
           </Link>
@@ -137,11 +137,11 @@ export default function ProductDetailPageComponent({
               </p>
             </div>
 
-            <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+            <div className="rounded-3xl border border-amber-100 bg-amber-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
                 Delivery Highlights
               </p>
-              <ul className="mt-3 space-y-2 text-sm text-emerald-900">
+              <ul className="mt-3 space-y-2 text-sm text-amber-900">
                 <li>✔ Same-day delivery within service areas</li>
                 <li>✔ Safety-checked cylinder and regulator inspection</li>
               </ul>
@@ -175,7 +175,7 @@ export default function ProductDetailPageComponent({
         <section className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="space-y-6">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
                 Customer reviews
               </p>
               <h2 className="text-3xl font-semibold text-slate-900">
