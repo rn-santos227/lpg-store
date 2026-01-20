@@ -31,7 +31,7 @@ export default function CoverageSection() {
         {supportHighlights.map((item) => (
           <div
             key={item.title}
-            className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+            className="rounded-3xl border border-amber-200 bg-white p-6 shadow-sm"
           >
             <h3 className="text-lg font-semibold text-slate-900">
               {item.title}
