@@ -129,11 +129,18 @@ export const servicesCatalogQuery = `
 export const contactInfoQuery = `
   *[_type == "contact"][0]{
     address,
-    contactNumber,
+    contactNumbers[]{
+      label,
+      number
+    },
     email,
     operationsHours[]{
       label,
       hours
+    },
+    socialMedia[]{
+      platform,
+      url
     },
     mapEmbedUrl,
     mapLink
