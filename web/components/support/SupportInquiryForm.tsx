@@ -49,10 +49,10 @@ export default function SupportInquiryForm() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="space-y-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+        className="space-y-5 rounded-3xl border border-amber-100 bg-white p-6 shadow-sm"
       >
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
             Send an inquiry
           </p>
           <h2 className="text-2xl font-semibold text-slate-900">
