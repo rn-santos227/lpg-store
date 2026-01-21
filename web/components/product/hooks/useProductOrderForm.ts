@@ -44,6 +44,12 @@ export const useProductOrderForm = ({
     OrderResponse["customerStatus"] | null
   >(null);
 
+  const updateField = (
+    field: keyof ProductOrderValues,
+    value: string | number,
+  ) => {
+    setValues((current) => ({ ...current, [field]: value }));
+  };
 
 
 }
