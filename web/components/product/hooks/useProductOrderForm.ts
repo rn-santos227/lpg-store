@@ -51,5 +51,10 @@ export const useProductOrderForm = ({
     setValues((current) => ({ ...current, [field]: value }));
   };
 
+  const validate = () => {
+    const nextErrors = validateProductOrder(values);
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
 
 }
