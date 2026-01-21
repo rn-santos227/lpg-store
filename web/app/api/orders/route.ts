@@ -72,6 +72,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Customer phone is required." }, { status: 400 });
     }
 
+    if (!address || address.length < 10) {
+      return NextResponse.json({ message: "Delivery address is required." }, { status: 400 });
+    }
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
