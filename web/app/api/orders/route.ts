@@ -68,6 +68,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Customer name is required." }, { status: 400 });
     }
 
+    if (!phone || phone.replace(/\D/g, "").length < 10) {
+      return NextResponse.json({ message: "Customer phone is required." }, { status: 400 });
+    }
 
   } catch (error) {
     const message =
