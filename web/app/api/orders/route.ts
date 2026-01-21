@@ -84,6 +84,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Valid coordinates are required." }, { status: 400 });
     }
 
+    const product = await fetchSanityQuery<ProductSnapshot>(productOrderSnapshotQuery, {
+      slug,
+    });
 
   } catch (error) {
     const message =
