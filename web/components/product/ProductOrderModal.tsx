@@ -15,4 +15,13 @@ type ProductOrderModalProps = {
   sizeKg?: number | null;
 };
 
+const formatPrice = (price?: number | null) => {
+  if (!price) return "Contact for price";
+  return `₱${price.toLocaleString("en-PH")}`;
+};
+
+const formatSize = (sizeKg?: number | null) => {
+  if (!sizeKg) return "Size varies";
+  return `${sizeKg}kg`;
+};
 
