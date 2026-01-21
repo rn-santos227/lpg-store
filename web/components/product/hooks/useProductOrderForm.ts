@@ -9,4 +9,13 @@ import {
   type ProductOrderValues,
 } from "../utils/orderValidators";
 
+type UseProductOrderFormProps = {
+  productSlug: string;
+  onSuccess?: (values: ProductOrderValues, response: OrderResponse) => void;
+};
+
+type OrderResponse = {
+  orderId: Order["id"];
+  customerStatus: "existing" | "created";
+};
 
