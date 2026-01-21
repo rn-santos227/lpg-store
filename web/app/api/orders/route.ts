@@ -88,6 +88,11 @@ export async function POST(request: NextRequest) {
       slug,
     });
 
+    if (!product?._id) {
+      return NextResponse.json({ message: "Product not found." }, { status: 404 });
+    }
+
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
