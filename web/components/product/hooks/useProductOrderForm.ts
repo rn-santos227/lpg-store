@@ -68,7 +68,37 @@ export const useProductOrderForm = ({
 
     setIsSubmitting(true);
     try {
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          slug: productSlug,
+          name: values.name.trim(),
+          phone: values.phone.trim(),
+          email: values.email.trim(),
+          address: values.address.trim(),
+          quantity: values.quantity,
+          deliveryNotes: values.deliveryNotes.trim(),
+          latitude: Number(values.latitude),
+          longitude: Number(values.longitude),
+        }),
+      });
 
+      if (!response.ok) {
+        const errorBody = (await response.json()) as { message?: string };
+        throw new Error(errorBody.message ?? "Unable to place order.");
+      }
+
+      const responseBody = (await response.json()) as OrderResponse;
+
+      setOrderId(responseBody.orderId);
+      setCustomerStatus(responseBody.customerStatus);
+
+      onSuccess?.(values, responseBody);
+
+      setValues(initialState);
+      setErrors({});
+      setIsSubmitted(true);
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unable to place order.";
