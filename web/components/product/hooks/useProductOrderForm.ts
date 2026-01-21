@@ -34,6 +34,16 @@ export const useProductOrderForm = ({
   productSlug,
   onSuccess,
 }: UseProductOrderFormProps) => {
+  const [values, setValues] = useState<ProductOrderValues>(initialState);
+  const [errors, setErrors] = useState<ProductOrderErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [orderId, setOrderId] = useState<string | null>(null);
+  const [customerStatus, setCustomerStatus] = useState<
+    OrderResponse["customerStatus"] | null
+  >(null);
+
 
 
 }
