@@ -198,7 +198,12 @@ export async function POST(request: NextRequest) {
       createdAt: new Date().toISOString(),
     };
 
+    const createdOrder = await createSanityDocument(orderDocument);
 
+    return NextResponse.json({
+      orderId: createdOrder.document._id,
+      customerStatus,
+    });
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
