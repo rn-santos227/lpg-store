@@ -57,4 +57,16 @@ export const useProductOrderForm = ({
     return Object.keys(nextErrors).length === 0;
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitted(false);
+    setSubmitError(null);
+    setOrderId(null);
+    setCustomerStatus(null);
+
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+
+  };
 }
