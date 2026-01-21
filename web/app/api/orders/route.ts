@@ -84,6 +84,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Valid coordinates are required." }, { status: 400 });
     }
 
+   const validatedLatitude = latitude as number;
+    const validatedLongitude = longitude as number;
+
     const product = await fetchSanityQuery<ProductSnapshot>(productOrderSnapshotQuery, {
       slug,
     });
@@ -109,8 +112,8 @@ export async function POST(request: NextRequest) {
         address,
         location: {
           _type: "geopoint",
-          lat: latitude,
-          lng: longitude,
+          lat: validatedLatitude,
+          lng: validatedLongitude,
         },
       });
 
@@ -123,22 +126,78 @@ export async function POST(request: NextRequest) {
       phone,
       address,
       location: {
-        lat: latitude,
-        lng: longitude,
+        lat: validatedLatitude,
+        lng: validatedLongitude,
       },
     };
 
-    const snapshotLocation = snapshotSource.location
-      ? {
+    const snapshotLocation: { _type: "geopoint"; lat: number; lng: number } =
+      snapshotSource.location
+        ? {
+            _type: "geopoint",
+            lat: snapshotSource.location.lat,
+            lng: snapshotSource.location.lng,
+          }
+        : {
+            _type: "geopoint",
+            lat: validatedLatitude,
+            lng: validatedLongitude,
+          };
+
+    const customerSnapshot: OrderCustomerSnapshot = {
+      name: snapshotSource.name ?? name,
+      phone: snapshotSource.phone ?? phone,
+      address: snapshotSource.address ?? address,
+      location: {
+        lat: snapshotLocation.lat,
+        lng: snapshotLocation.lng,
+      },
+    };
+
+    const productSnapshot: OrderProductSnapshot = {
+      name: product.name,
+      sizeKg: product.sizeKg ?? null,
+      price: product.price ?? null,
+    };
+
+    const orderLineItem: OrderLineItem = {
+      productId: product._id,
+      productSnapshot,
+      quantity,
+    };
+
+    const orderDocument = {
+      _type: "order",
+      customer: {
+        _type: "reference",
+        _ref: customerId,
+      },
+      customerSnapshot: {
+        ...customerSnapshot,
+        location: {
           _type: "geopoint",
-          lat: snapshotSource.location.lat,
-          lng: snapshotSource.location.lng,
-        }
-      : {
-          _type: "geopoint",
-          lat: latitude,
-          lng: longitude,
-        };
+          lat: customerSnapshot.location?.lat ?? validatedLatitude,
+          lng: customerSnapshot.location?.lng ?? validatedLongitude,
+        },
+      },
+      items: [
+        {
+          product: {
+            _type: "reference",
+            _ref: product._id,
+          },
+          productSnapshot: {
+            name: orderLineItem.productSnapshot.name,
+            sizeKg: orderLineItem.productSnapshot.sizeKg ?? null,
+            price: orderLineItem.productSnapshot.price ?? null,
+          },
+          quantity: orderLineItem.quantity,
+        },
+      ],
+      deliveryNotes: deliveryNotes || undefined,
+      createdAt: new Date().toISOString(),
+    };
+
 
   } catch (error) {
     const message =
