@@ -92,6 +92,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Product not found." }, { status: 404 });
     }
 
+    const existingCustomer = await fetchSanityQuery<CustomerRecord>(
+      customerByContactQuery,
+      { phone, email },
+    );
+
 
   } catch (error) {
     const message =
