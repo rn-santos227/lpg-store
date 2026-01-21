@@ -80,6 +80,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Quantity must be at least 1." }, { status: 400 });
     }
 
+    if (!isValidCoordinate(latitude, -90, 90) || !isValidCoordinate(longitude, -180, 180)) {
+      return NextResponse.json({ message: "Valid coordinates are required." }, { status: 400 });
+    }
+
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
