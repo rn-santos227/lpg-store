@@ -128,6 +128,18 @@ export async function POST(request: NextRequest) {
       },
     };
 
+    const snapshotLocation = snapshotSource.location
+      ? {
+          _type: "geopoint",
+          lat: snapshotSource.location.lat,
+          lng: snapshotSource.location.lng,
+        }
+      : {
+          _type: "geopoint",
+          lat: latitude,
+          lng: longitude,
+        };
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
