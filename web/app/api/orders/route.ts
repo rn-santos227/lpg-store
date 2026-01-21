@@ -97,6 +97,26 @@ export async function POST(request: NextRequest) {
       { phone, email },
     );
 
+    let customerId = existingCustomer?._id ?? "";
+    let customerStatus: "existing" | "created" = "existing";
+
+    if (!customerId) {
+      const created = await createSanityDocument({
+        _type: "customer",
+        name,
+        phone,
+        email: email || undefined,
+        address,
+        location: {
+          _type: "geopoint",
+          lat: latitude,
+          lng: longitude,
+        },
+      });
+
+      customerId = created.document._id;
+      customerStatus = "created";
+    }
 
   } catch (error) {
     const message =
