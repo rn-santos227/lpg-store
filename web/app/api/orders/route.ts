@@ -118,6 +118,16 @@ export async function POST(request: NextRequest) {
       customerStatus = "created";
     }
 
+    const snapshotSource = existingCustomer ?? {
+      name,
+      phone,
+      address,
+      location: {
+        lat: latitude,
+        lng: longitude,
+      },
+    };
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
