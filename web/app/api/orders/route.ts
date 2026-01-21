@@ -64,6 +64,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Product slug is required." }, { status: 400 });
     }
 
+    if (!name || name.length < 2) {
+      return NextResponse.json({ message: "Customer name is required." }, { status: 400 });
+    }
 
 
   } catch (error) {
