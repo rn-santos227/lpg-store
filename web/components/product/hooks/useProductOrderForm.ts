@@ -30,3 +30,10 @@ const initialState: ProductOrderValues = {
   longitude: "",
 };
 
+export const useProductOrderForm = ({
+  productSlug,
+  onSuccess,
+}: UseProductOrderFormProps) => {
+
+
+}
