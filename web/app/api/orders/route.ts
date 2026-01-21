@@ -42,7 +42,6 @@ type ProductSnapshot = {
   price?: number | null;
 };
 
-
 const normalizeEmail = (value?: string) => value?.trim().toLowerCase() ?? "";
 
 const isValidCoordinate = (value: number | undefined, min: number, max: number) =>
@@ -60,6 +59,12 @@ export async function POST(request: NextRequest) {
     const deliveryNotes = body.deliveryNotes?.trim();
     const latitude = body.latitude;
     const longitude = body.longitude;
+
+    if (!slug) {
+      return NextResponse.json({ message: "Product slug is required." }, { status: 400 });
+    }
+
+
 
   } catch (error) {
     const message =
