@@ -76,6 +76,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Delivery address is required." }, { status: 400 });
     }
 
+    if (!Number.isFinite(quantity) || quantity < 1) {
+      return NextResponse.json({ message: "Quantity must be at least 1." }, { status: 400 });
+    }
+
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to submit order.";
