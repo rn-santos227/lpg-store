@@ -19,3 +19,14 @@ type OrderResponse = {
   customerStatus: "existing" | "created";
 };
 
+const initialState: ProductOrderValues = {
+  name: "",
+  phone: "",
+  email: "",
+  address: "",
+  quantity: 1,
+  deliveryNotes: "",
+  latitude: "",
+  longitude: "",
+};
+
