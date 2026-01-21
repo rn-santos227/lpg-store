@@ -67,6 +67,14 @@ export const useProductOrderForm = ({
     if (!validate()) return;
 
     setIsSubmitting(true);
+    try {
 
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to place order.";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 }
