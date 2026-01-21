@@ -75,4 +75,52 @@ export default function ProductOrderModal({
     }
   }, [customerStatus, isSubmitted, showInfo]);
 
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={`Order ${productName}`}
+      description="Share delivery details so our team can confirm your order."
+      size="lg"
+    >
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,0.45fr)]">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <TextField
+            label="Customer name"
+            value={values.name}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              updateField("name", event.target.value)
+            }
+            placeholder="Juan dela Cruz"
+            error={errors.name}
+          />
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <TextField
+              label="Mobile number"
+              value={values.phone}
+              onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                updateField("phone", event.target.value)
+              }
+              placeholder="09xx xxx xxxx"
+              error={errors.phone}
+            />
+            <TextField
+              label="Email (optional)"
+              type="email"
+              value={values.email}
+              onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                updateField("email", event.target.value)
+              }
+              placeholder="name@email.com"
+              error={errors.email}
+            />
+          </div>
+
+        </form>
+      </div>
+
+      <Toast toasts={toasts} onDismiss={dismissToast} />
+    </Modal>
+  );
 }
