@@ -11,6 +11,7 @@ import { useProductGallery } from "./hooks/useProductGallery";
 import { useProductReviews } from "./hooks/useProductReviews";
 import ReviewCardComponent from "./ReviewCardComponent";
 import ReviewFormComponent from "./ReviewFormComponent";
+import ProductOrderModal from "./ProductOrderModal";
 import {
   Badge,
   Button,
@@ -46,6 +47,7 @@ export default function ProductDetailPageComponent({
   reviews,
 }: ProductDetailPageComponentProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const galleryImages = useProductGallery({ product });
   const { localReviews, approvedReviews, averageRating, submitReview } =
     useProductReviews({
@@ -145,9 +147,14 @@ export default function ProductDetailPageComponent({
                 <li>✔ Same-day delivery within service areas</li>
                 <li>✔ Safety-checked cylinder and regulator inspection</li>
               </ul>
-              <Button className="mt-4 w-full" href="/#support">
-                Request a Refill Quote
-              </Button>
+              <div className="mt-4 flex flex-col gap-2">
+                <Button className="w-full" onClick={() => setIsOrderModalOpen(true)}>
+                  Place an Order
+                </Button>
+                <Button className="w-full" variant="secondary" href="/#support">
+                  Request a Refill Quote
+                </Button>
+              </div>
             </div>
 
             <div className="rounded-3xl border border-slate-200 bg-white p-6">
@@ -235,6 +242,15 @@ export default function ProductDetailPageComponent({
           />
         ) : null}
       </Modal>
+
+      <ProductOrderModal
+        open={isOrderModalOpen}
+        onClose={() => setIsOrderModalOpen(false)}
+        productName={product.name}
+        productSlug={product.slug ?? ""}
+        price={product.price}
+        sizeKg={product.sizeKg}
+      />
     </div>
   );
 }
