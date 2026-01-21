@@ -107,4 +107,17 @@ export const useProductOrderForm = ({
       setIsSubmitting(false);
     }
   };
+
+  return {
+    values,
+    errors,
+    isSubmitting,
+    isSubmitted,
+    submitError,
+    orderId,
+    customerStatus,
+    updateField,
+    handleSubmit,
+    setValues,
+  };
 }
