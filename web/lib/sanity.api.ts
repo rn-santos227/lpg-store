@@ -27,20 +27,30 @@ export async function fetchSanityQuery<T>(
   query: string,
   params?: Record<string, string>,
 ): Promise<T | null> {
-  if (params) {
-    const result = await sanityClient.fetch<T>(query, params);
-    return result ?? null;
-  }
+  try {
+    if (params) {
+      const result = await sanityClient.fetch<T>(query, params);
+      return result ?? null;
+    }
 
-  const result = await sanityClient.fetch<T>(query);
-  return result ?? null;
+    const result = await sanityClient.fetch<T>(query);
+    return result ?? null;
+  } catch (error) {
+    console.warn("Sanity query failed, returning null result.", error);
+    return null;
+  }
 }
 
 export async function fetchSanityDocument<T extends SanityDocument>(
   id: string,
 ): Promise<T | null> {
-  const result = await sanityClient.getDocument(id);
-  return (result as T | null) ?? null;
+  try {
+    const result = await sanityClient.getDocument(id);
+    return (result as T | null) ?? null;
+  } catch (error) {
+    console.warn("Sanity document fetch failed, returning null.", error);
+    return null;
+  }
 }
 
 export async function createSanityDocument<T extends SanityDocument>(
