@@ -37,7 +37,6 @@ export default {
       title: 'Customer Name',
       type: 'string',
     },
-
     {
       name: 'status',
       title: 'Review Status',
