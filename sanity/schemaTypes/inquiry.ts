@@ -10,7 +10,6 @@ export default {
       name: 'name',
       title: 'Sender Name',
       type: 'string',
-      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'contactNumber',
@@ -28,6 +27,16 @@ export default {
       title: 'Message',
       type: 'text',
       validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'topic',
+      title: 'Topic',
+      type: 'string',
+    },
+    {
+      name: 'orderId',
+      title: 'Order Reference',
+      type: 'string',
     },
     {
       name: 'status',
