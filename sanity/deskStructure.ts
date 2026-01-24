@@ -22,6 +22,17 @@ export const structure: StructureResolver = (S) =>
                 ),
 
               S.listItem()
+                .title('Service Bookings')
+                .schemaType('booking')
+                .child(
+                  S.documentTypeList('booking')
+                    .title('Service Bookings')
+                    .defaultOrdering([
+                      { field: 'createdAt', direction: 'desc' },
+                    ])
+                ),
+
+              S.listItem()
                 .title('Customer Inquiries')
                 .schemaType('inquiry')
                 .child(
@@ -136,6 +147,11 @@ export const structure: StructureResolver = (S) =>
                 .title('All Orders')
                 .schemaType('order')
                 .child(S.documentTypeList('order')),
+
+              S.listItem()
+                .title('All Service Bookings')
+                .schemaType('booking')
+                .child(S.documentTypeList('booking')),
 
               S.listItem()
                 .title('All Inquiries')

@@ -1,3 +1,4 @@
+import booking from './booking'
 import category from './category'
 import contact from './contact'
 import customer from './customer'
@@ -10,6 +11,7 @@ import review from './review'
 import service from './service'
 
 export const schemaTypes = [
+  booking,
   category,
   contact,
   customer,
