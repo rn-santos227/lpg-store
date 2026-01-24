@@ -54,6 +54,24 @@ export const useSupportInquiryForm = ({
     setIsSubmitting(true);
 
     try {
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          phone: values.phone.trim(),
+          topic: values.topic,
+          orderId: values.orderId.trim(),
+          message: values.message.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorBody = (await response.json()) as { message?: string };
+        throw new Error(errorBody.message ?? "Unable to submit inquiry.");
+      }
+
       onSuccess?.({
         name: values.name.trim(),
         email: values.email.trim(),
