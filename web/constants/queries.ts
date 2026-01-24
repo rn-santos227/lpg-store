@@ -95,6 +95,14 @@ export const productOrderSnapshotQuery = `
   }
 `;
 
+export const serviceBookingSnapshotQuery = `
+  *[_type == "service" && slug.current == $slug][0]{
+    _id,
+    title,
+    fee
+  }
+`;
+
 export const productDetailQuery = `
   *[_type == "product" && slug.current == $slug][0]{
     _id,

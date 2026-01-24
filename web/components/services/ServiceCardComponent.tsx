@@ -1,24 +1,32 @@
 "use client";
 
+import { useState } from "react";
+
 import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/Card";
 import ImageViewer from "../ui/ImageViewer";
+import ServiceBookingForm from "./ServiceBookingForm";
 
 type ServiceCardProps = {
   title: string;
   summary?: string | null;
   feeLabel?: string | null;
+  fee?: number | null;
   imageUrl?: string | null;
-  href?: string;
+  serviceSlug?: string;
 };
 
 export function ServiceCard({
   title,
   summary,
   feeLabel,
+  fee,
   imageUrl,
-  href = "#support",
+  serviceSlug,
 }: ServiceCardProps) {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const canBook = Boolean(serviceSlug);
+
   return (
     <Card className="group flex h-full flex-col overflow-hidden">
       <div className="relative">
@@ -48,11 +56,24 @@ export function ServiceCard({
           ) : (
             <span className="text-sm text-slate-500">Custom Quote</span>
           )}
-          <Button variant="secondary" href={href}>
+          <Button
+            variant="secondary"
+            onClick={() => setIsBookingOpen(true)}
+            disabled={!canBook}
+          >
             Book Now
           </Button>
         </div>
       </CardContent>
+      {serviceSlug ? (
+        <ServiceBookingForm
+          open={isBookingOpen}
+          onClose={() => setIsBookingOpen(false)}
+          serviceName={title}
+          serviceSlug={serviceSlug}
+          fee={fee}
+        />
+      ) : null}
     </Card>
   );
 }

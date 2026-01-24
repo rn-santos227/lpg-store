@@ -73,8 +73,9 @@ export default async function ServicesPageComponent() {
                   title={service.title}
                   summary={service.summary}
                   feeLabel={formatPrice(service.fee)}
+                  fee={service.fee}
                   imageUrl={service.imageUrl}
-                  href={service.slug ? `/services/${service.slug}` : "/#support"}
+                  serviceSlug={service.slug}
                 />
               ))}
             </div>
