@@ -200,7 +200,7 @@ export default function ProductOrderModal({
               Existing customers
             </p>
             <p className="mt-1 text-sm text-amber-900">
-              If your details match a customer record in our Sanity studio, we will
+              If your details match a customer record in our database, we will
               link this order to that profile automatically.
             </p>
           </div>

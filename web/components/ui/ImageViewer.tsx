@@ -71,8 +71,8 @@ export default function ImageViewer({
             .join(" ")}
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-indigo-50 via-white to-amber-50">
-          <div className="flex flex-col items-center gap-2 text-center text-slate-500">
+        <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-indigo-50 via-white to-amber-50 p-6">
+          <div className="flex max-w-48 flex-col items-center gap-2 text-center text-slate-500">
             <span className="flex h-12 w-10 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white shadow-inner">
               {iconNode}
             </span>

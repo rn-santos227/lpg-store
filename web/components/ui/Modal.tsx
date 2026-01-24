@@ -60,7 +60,7 @@ export function Modal({
       <button
         type="button"
         aria-label="Close dialog"
-        className="modal-overlay absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+        className="modal-overlay absolute inset-0 bg-slate-900/60 backdrop-blur-sm motion-reduce:animate-none animate-modal-fade"
         onClick={onClose}
       />
 
@@ -72,6 +72,7 @@ export function Modal({
         className={cn(
           "modal-content relative w-full rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200",
           "overflow-hidden border border-white/40",
+          "motion-reduce:animate-none animate-modal-pop",
           sizeStyles[size],
         )}
       >

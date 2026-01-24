@@ -25,7 +25,7 @@ export function ServiceCard({
         <ImageViewer
           src={imageUrl}
           alt={title}
-          className="h-44 w-full"
+          className="h-52 w-full"
           imgClassName="transition duration-300 group-hover:scale-105"
         />
       </div>
@@ -49,7 +49,7 @@ export function ServiceCard({
             <span className="text-sm text-slate-500">Custom Quote</span>
           )}
           <Button variant="secondary" href={href}>
-            Book No
+            Book Now
           </Button>
         </div>
       </CardContent>
