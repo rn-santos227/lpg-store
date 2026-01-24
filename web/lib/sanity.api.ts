@@ -17,6 +17,12 @@ type MutationResult<T> = {
   document: T;
 };
 
+const ensureWriteToken = () => {
+  if (!process.env.SANITY_API_WRITE_TOKEN) {
+    throw new Error("SANITY_API_WRITE_TOKEN is not configured.");
+  }
+};
+
 export async function fetchSanityQuery<T>(
   query: string,
   params?: Record<string, string>,
@@ -40,6 +46,7 @@ export async function fetchSanityDocument<T extends SanityDocument>(
 export async function createSanityDocument<T extends SanityDocument>(
   document: SanityCreateInput<T>,
 ): Promise<MutationResult<T>> {
+  ensureWriteToken();
   const created = await sanityWriteClient.create(document);
   return { document: created as T };
 }

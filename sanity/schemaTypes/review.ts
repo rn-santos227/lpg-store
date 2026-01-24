@@ -33,6 +33,12 @@ export default {
       description: 'Optional review text',
     },
     {
+      name: 'customerName',
+      title: 'Customer Name',
+      type: 'string',
+    },
+
+    {
       name: 'status',
       title: 'Review Status',
       type: 'string',

@@ -69,6 +69,7 @@ export async function POST(request: NextRequest) {
       },
       rating,
       comment: comment ?? null,
+      customerName: body.name?.trim() || null,
       status: "pending",
       createdAt: new Date().toISOString(),
     };

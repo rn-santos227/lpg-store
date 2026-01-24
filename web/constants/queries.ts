@@ -119,7 +119,7 @@ export const productReviewsQuery = `
     rating,
     comment,
     createdAt,
-    "customerName": coalesce(customer->name, "Verified customer")
+    "customerName": coalesce(customerName, customer->name, "Verified customer")
   }
 `;
 
