@@ -187,10 +187,10 @@ export default function HomePageComponent() {
         </section>
 
         <section className="space-y-8" id="support">
-          <div className="rounded-3xl border border-amber-100 bg-amber-50 p-8">
+          <div className="rounded-3xl border border-red-100 bg-amber-50 p-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
                   Customer care
                 </p>
                 <h2 className="text-3xl font-semibold text-slate-900">
