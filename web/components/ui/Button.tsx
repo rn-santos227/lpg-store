@@ -28,10 +28,10 @@ type ButtonProps = NativeButtonProps | AnchorButtonProps;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-amber-600 text-white hover:bg-amber-500 focus-visible:outline-amber-600",
+    "bg-red-600 text-white hover:bg-red-500 focus-visible:outline-red-600",
   secondary:
-    "bg-white text-amber-900 ring-1 ring-inset ring-amber-200 hover:ring-amber-300",
-  ghost: "bg-transparent text-amber-800 hover:bg-amber-50",
+    "bg-white text-red-900 ring-1 ring-inset ring-red-200 hover:ring-red-300",
+  ghost: "bg-transparent text-red-800 hover:bg-red-50",
 
 };
 

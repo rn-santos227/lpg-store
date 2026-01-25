@@ -19,18 +19,18 @@ export function Accordion({
   const contentId = useId();
 
   return (
-    <div className={`rounded-2xl border border-amber-100 bg-white ${className ?? ""}`}>
+    <div className={`rounded-2xl border border-red-100 bg-white ${className ?? ""}`}>
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-amber-900 transition hover:bg-amber-50"
+        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-red-900 transition hover:bg-red-50"
         onClick={() => setIsOpen((value) => !value)}
         aria-expanded={isOpen}
         aria-controls={contentId}
       >
         <span>{title}</span>
         <span
-          className={`flex h-8 w-8 items-center justify-center rounded-full border border-amber-100 text-amber-700 transition ${
-            isOpen ? "rotate-180 bg-amber-50" : "bg-white"
+          className={`flex h-8 w-8 items-center justify-center rounded-full border border-red-100 text-red-700 transition ${
+            isOpen ? "rotate-180 bg-red-50" : "bg-white"
           }`}
         >
           <svg

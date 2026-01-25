@@ -23,8 +23,8 @@ export function RatingInput({ value, onChange, label = "Rating", error }: Rating
               className={cn(
                 "flex h-10 w-10 items-center justify-center rounded-full border text-lg transition",
                 selected
-                  ? "border-amber-200 bg-amber-50 text-amber-500 shadow-sm"
-                  : "border-slate-200 bg-white text-slate-400 hover:border-amber-200 hover:text-amber-500"
+                  ? "border-red-200 bg-amber-50 text-red-500 shadow-sm"
+                  : "border-slate-200 bg-white text-slate-400 hover:border-red-200 hover:text-red-500"
               )}
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
               aria-pressed={selected}

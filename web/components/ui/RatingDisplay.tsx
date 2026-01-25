@@ -22,7 +22,7 @@ export function RatingDisplay({
 
   return (
     <div
-      className={clsx("flex items-center gap-1 text-amber-500", className)}
+      className={clsx("flex items-center gap-1 text-red-500", className)}
       aria-label={ariaLabel ?? `Rating: ${rating.toFixed(1)} out of 5`}
     >
       {STARS.map((value) => (
