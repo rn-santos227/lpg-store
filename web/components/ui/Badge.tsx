@@ -9,7 +9,7 @@ type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
 const toneStyles: Record<BadgeTone, string> = {
   neutral: "bg-gray-100 text-gray-900 ring-gray-200",
   success: "bg-emerald-50 text-emerald-700 ring-emerald-100",
-  warning: "bg-amber-50 text-amber-700 ring-amber-100",
+  warning: "bg-amber-50 text-red-700 ring-red-100",
   info: "bg-indigo-50 text-indigo-700 ring-indigo-100",
 };
 
