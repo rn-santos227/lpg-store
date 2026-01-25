@@ -50,10 +50,10 @@ export default function ReviewFormComponent({
     <>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+        className="space-y-4 rounded-3xl border border-amber-200 bg-white p-6"
       >
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
             Leave a review
           </p>
           <h3 className="text-2xl font-semibold text-slate-900">
