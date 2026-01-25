@@ -22,15 +22,13 @@ export default function GeneralHeaderLayout() {
     <header className="sticky top-0 z-50 border-b border-red-100 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center gap-3" aria-label="A4R LPG Trading home">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-red-200">
-            <Image
-              src="/site-logo.png"
-              alt="Island Gas logo"
-              width={36}
-              height={36}
-              className="rounded-full object-cover"
-            />
-          </span>
+          <Image
+            src="/site-logo.png"
+            alt="Island Gas logo"
+            width={46}
+            height={46}
+            className="rounded-full object-cover"
+          />
           <div>
             <p className="text-lg font-semibold text-slate-900">A4R LPG Trading</p>
             <p className="text-sm text-slate-500">Marketplace for Clean Energy Essentials</p>
